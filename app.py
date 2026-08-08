@@ -4,7 +4,6 @@ import pandas as pd
 import requests
 import streamlit as st
 
-
 # ============================================================
 # PAGE CONFIG
 # ============================================================
@@ -15,7 +14,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
 
 # ============================================================
 # CUSTOM UI
@@ -29,7 +27,7 @@ st.markdown(
     }
 
     .block-container {
-        max-width: 1400px;
+        max-width: 1450px;
         padding-top: 2rem;
         padding-bottom: 3rem;
     }
@@ -42,26 +40,32 @@ st.markdown(
         background: linear-gradient(135deg, #172033, #263b63);
         padding: 32px;
         border-radius: 22px;
-        margin-bottom: 24px;
+        margin-bottom: 25px;
+    }
+
+    .hero-small {
+        color: #9fb6d9;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
     }
 
     .hero-title {
         color: white;
-        font-size: 38px;
+        font-size: 42px;
         font-weight: 800;
-        margin-bottom: 8px;
+        margin-top: 5px;
     }
 
     .hero-text {
         color: #dbe5f5;
         font-size: 16px;
+        margin-top: 5px;
     }
 
-    .section-title {
-        font-size: 22px;
-        font-weight: 750;
-        color: #172033;
-        margin-top: 10px;
+    .hero-icons {
+        font-size: 28px;
+        margin-top: 15px;
     }
 
     div[data-testid="stMetric"] {
@@ -70,6 +74,11 @@ st.markdown(
         border-radius: 16px;
         padding: 18px;
         box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+
+    div[data-testid="stDataEditor"] {
+        border-radius: 14px;
+        overflow: hidden;
     }
 
     div[data-testid="stExpander"] {
@@ -83,9 +92,12 @@ st.markdown(
         font-weight: 650;
     }
 
-    div[data-testid="stDataEditor"] {
-        border-radius: 14px;
-        overflow: hidden;
+    .info-card {
+        background: white;
+        border: 1px solid #e5e9f0;
+        border-radius: 16px;
+        padding: 20px;
+        margin-bottom: 15px;
     }
 
     .footer {
@@ -98,7 +110,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 
 # ============================================================
 # GROQ
@@ -118,6 +129,7 @@ def call_groq(messages, temperature=0.3):
         )
 
     try:
+
         response = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",
             headers={
@@ -139,12 +151,14 @@ def call_groq(messages, temperature=0.3):
         return data["choices"][0]["message"]["content"], None
 
     except requests.exceptions.HTTPError:
+
         return None, (
             f"Groq API error ({response.status_code}): "
             f"{response.text[:400]}"
         )
 
     except Exception as e:
+
         return None, f"Request to Groq failed: {e}"
 
 
@@ -160,8 +174,10 @@ def load_default(csv_name, fallback_rows, columns):
     path = os.path.join(APP_DIR, csv_name)
 
     if os.path.exists(path):
+
         try:
             return pd.read_csv(path)
+
         except Exception:
             pass
 
@@ -258,7 +274,6 @@ DEFAULT_TRIPS = load_default(
     ]
 )
 
-
 # ============================================================
 # SESSION STATE
 # ============================================================
@@ -327,12 +342,24 @@ def query(conn, sql, params=None):
 st.markdown(
     """
     <div class="hero">
-        <div class="hero-title">🚖 RideFlow Analytics</div>
+
+        <div class="hero-small">
+            AI-POWERED RIDE ANALYTICS
+        </div>
+
+        <div class="hero-title">
+            RideFlow Analytics 🚖
+        </div>
+
         <div class="hero-text">
             Explore trips, revenue, drivers, riders and routes
-            through an interactive analytics dashboard.
-            Edit your data and watch every insight update live.
+            through an interactive business intelligence dashboard.
         </div>
+
+        <div class="hero-icons">
+            🚖 📊 💰 🚗 📍
+        </div>
+
     </div>
     """,
     unsafe_allow_html=True
@@ -359,7 +386,6 @@ tabs = st.tabs(
     ]
 )
 
-
 (
     tab_overview,
     tab_edit,
@@ -377,6 +403,9 @@ tabs = st.tabs(
 
 # ============================================================
 # EDIT DATA
+# IMPORTANT:
+# The edited data is captured FIRST.
+# Then database + dashboard are calculated.
 # ============================================================
 
 with tab_edit:
@@ -384,8 +413,12 @@ with tab_edit:
     st.header("✏️ Edit Your Data")
 
     st.caption(
-        "Edit cells directly. Charts and KPIs update automatically."
+        "Change any cell below. The entire dashboard recalculates automatically."
     )
+
+    # --------------------------------------------------------
+    # RIDERS
+    # --------------------------------------------------------
 
     st.subheader("🧍 Riders")
 
@@ -411,6 +444,10 @@ with tab_edit:
             )
         }
     )
+
+    # --------------------------------------------------------
+    # DRIVERS
+    # --------------------------------------------------------
 
     st.subheader("🚗 Drivers")
 
@@ -447,6 +484,10 @@ with tab_edit:
             )
         }
     )
+
+    # --------------------------------------------------------
+    # TRIPS
+    # --------------------------------------------------------
 
     st.subheader("🚖 Trips")
 
@@ -505,9 +546,18 @@ with tab_edit:
         }
     )
 
-    st.session_state.riders_df = edited_riders
-    st.session_state.drivers_df = edited_drivers
-    st.session_state.trips_df = edited_trips
+    # ========================================================
+    # CRITICAL FIX
+    # ========================================================
+
+    # Always save the latest editor output.
+    st.session_state.riders_df = edited_riders.copy()
+    st.session_state.drivers_df = edited_drivers.copy()
+    st.session_state.trips_df = edited_trips.copy()
+
+    st.success(
+        "✅ Changes are live. Open the Overview tab to see updated analytics."
+    )
 
     st.divider()
 
@@ -515,6 +565,15 @@ with tab_edit:
         "↩️ Reset Everything to Sample Data",
         use_container_width=True
     ):
+
+        # Clear editor widget state too.
+        for key in [
+            "riders_editor",
+            "drivers_editor",
+            "trips_editor"
+        ]:
+            if key in st.session_state:
+                del st.session_state[key]
 
         st.session_state.riders_df = DEFAULT_RIDERS.copy()
         st.session_state.drivers_df = DEFAULT_DRIVERS.copy()
@@ -524,7 +583,7 @@ with tab_edit:
 
 
 # ============================================================
-# CURRENT DATABASE
+# BUILD CURRENT DATABASE
 # ============================================================
 
 conn = build_connection(
@@ -535,33 +594,37 @@ conn = build_connection(
 
 
 # ============================================================
-# SUMMARY
+# LIVE SUMMARY
 # ============================================================
 
 summary = query(
     conn,
     """
     SELECT
+
         COUNT(*) AS total_trips,
 
         SUM(
             CASE
                 WHEN trip_status = 'Completed'
-                THEN 1 ELSE 0
+                THEN 1
+                ELSE 0
             END
         ) AS completed_trips,
 
         SUM(
             CASE
                 WHEN trip_status = 'Cancelled'
-                THEN 1 ELSE 0
+                THEN 1
+                ELSE 0
             END
         ) AS cancelled_trips,
 
         SUM(
             CASE
                 WHEN trip_status = 'Completed'
-                THEN fare ELSE 0
+                THEN fare
+                ELSE 0
             END
         ) AS total_revenue,
 
@@ -584,7 +647,9 @@ summary = query(
 ).iloc[0]
 
 
-total_trips = int(summary["total_trips"] or 0)
+total_trips = int(
+    summary["total_trips"] or 0
+)
 
 completed = int(
     summary["completed_trips"] or 0
@@ -626,37 +691,45 @@ with tab_overview:
     st.header("📊 Business Overview")
 
     st.caption(
-        "Live analytics calculated from your current dataset."
+        "Everything below is calculated from your CURRENT edited data."
     )
+
+    # --------------------------------------------------------
+    # KPI CARDS
+    # --------------------------------------------------------
 
     c1, c2, c3, c4, c5 = st.columns(5)
 
     c1.metric(
-        "Total Trips",
+        "🚖 Total Trips",
         f"{total_trips:,}"
     )
 
     c2.metric(
-        "Completed",
+        "✅ Completed",
         f"{completed:,}"
     )
 
     c3.metric(
-        "Cancellation Rate",
+        "❌ Cancellation Rate",
         f"{cancel_rate:.1f}%"
     )
 
     c4.metric(
-        "Total Revenue",
+        "💰 Total Revenue",
         f"₹{total_revenue:,.0f}"
     )
 
     c5.metric(
-        "Avg Fare / km",
+        "📏 Avg Fare / km",
         f"₹{fare_per_km:.2f}"
     )
 
     st.divider()
+
+    # --------------------------------------------------------
+    # STATUS + PAYMENT
+    # --------------------------------------------------------
 
     col1, col2 = st.columns(2)
 
@@ -667,16 +740,24 @@ with tab_overview:
         status = query(
             conn,
             """
-            SELECT trip_status, COUNT(*) AS trips
+            SELECT
+                trip_status,
+                COUNT(*) AS trips
             FROM trips
             GROUP BY trip_status
+            ORDER BY trips DESC
             """
         )
 
         if not status.empty:
+
             st.bar_chart(
                 status.set_index("trip_status")
             )
+
+        else:
+
+            st.info("No trip data available.")
 
     with col2:
 
@@ -685,16 +766,46 @@ with tab_overview:
         payment = query(
             conn,
             """
-            SELECT payment_method, COUNT(*) AS trips
+            SELECT
+                payment_method,
+                COUNT(*) AS trips
             FROM trips
             GROUP BY payment_method
+            ORDER BY trips DESC
             """
         )
 
         if not payment.empty:
+
             st.bar_chart(
                 payment.set_index("payment_method")
             )
+
+        else:
+
+            st.info("No payment data available.")
+
+    # --------------------------------------------------------
+    # QUICK SUMMARY
+    # --------------------------------------------------------
+
+    st.divider()
+
+    st.subheader("📌 Quick Business Summary")
+
+    q1, q2, q3 = st.columns(3)
+
+    q1.info(
+        f"**{total_trips:,}** total trips are currently in the dataset."
+    )
+
+    q2.success(
+        f"**{completed:,}** trips were completed."
+    )
+
+    q3.warning(
+        f"**{cancel_rate:.1f}%** of trips were cancelled."
+    )
 
 
 # ============================================================
@@ -717,20 +828,28 @@ with tab_revenue:
             SELECT
                 d.city,
                 SUM(t.fare) AS revenue
+
             FROM trips t
+
             JOIN drivers d
                 ON t.driver_id = d.driver_id
+
             WHERE t.trip_status = 'Completed'
+
             GROUP BY d.city
+
             ORDER BY revenue DESC
             """
         )
 
         if not data.empty:
+
             st.bar_chart(
                 data.set_index("city")
             )
+
         else:
+
             st.info("No completed trips.")
 
     with col2:
@@ -743,21 +862,27 @@ with tab_revenue:
             SELECT
                 d.vehicle_type,
                 SUM(t.fare) AS revenue
+
             FROM trips t
+
             JOIN drivers d
                 ON t.driver_id = d.driver_id
+
             WHERE t.trip_status = 'Completed'
+
             GROUP BY d.vehicle_type
+
             ORDER BY revenue DESC
             """
         )
 
         if not data.empty:
+
             st.bar_chart(
                 data.set_index("vehicle_type")
             )
 
-    st.subheader("Payment Method Distribution")
+    st.subheader("💳 Payment Method Distribution")
 
     payment = query(
         conn,
@@ -765,12 +890,17 @@ with tab_revenue:
         SELECT
             payment_method,
             COUNT(*) AS trips
+
         FROM trips
+
         GROUP BY payment_method
+
+        ORDER BY trips DESC
         """
     )
 
     if not payment.empty:
+
         st.bar_chart(
             payment.set_index("payment_method")
         )
@@ -788,6 +918,7 @@ with tab_drivers:
         conn,
         """
         SELECT
+
             d.driver_name,
             d.city,
             d.vehicle_type,
@@ -797,14 +928,16 @@ with tab_drivers:
             SUM(
                 CASE
                     WHEN t.trip_status = 'Completed'
-                    THEN 1 ELSE 0
+                    THEN 1
+                    ELSE 0
                 END
             ) AS completed_trips,
 
             SUM(
                 CASE
                     WHEN t.trip_status = 'Completed'
-                    THEN t.fare ELSE 0
+                    THEN t.fare
+                    ELSE 0
                 END
             ) AS earnings
 
@@ -838,9 +971,7 @@ with tab_drivers:
             ["driver_name", "earnings"]
         ].set_index("driver_name")
 
-        st.bar_chart(
-            chart_data
-        )
+        st.bar_chart(chart_data)
 
 
 # ============================================================
@@ -855,6 +986,7 @@ with tab_riders:
         conn,
         """
         SELECT
+
             r.rider_name,
             r.city,
 
@@ -863,7 +995,8 @@ with tab_riders:
             SUM(
                 CASE
                     WHEN t.trip_status = 'Completed'
-                    THEN t.fare ELSE 0
+                    THEN t.fare
+                    ELSE 0
                 END
             ) AS total_spend
 
@@ -892,6 +1025,7 @@ with tab_riders:
         conn,
         """
         WITH rc AS (
+
             SELECT
                 rider_id,
                 COUNT(*) AS completed_trips
@@ -904,14 +1038,17 @@ with tab_riders:
         )
 
         SELECT
+
             CASE
                 WHEN COUNT(*) = 0 THEN 0
+
                 ELSE ROUND(
                     100.0 *
                     SUM(
                         CASE
                             WHEN completed_trips > 1
-                            THEN 1 ELSE 0
+                            THEN 1
+                            ELSE 0
                         END
                     ) / COUNT(*),
                     1
@@ -954,6 +1091,7 @@ with tab_time:
             conn,
             """
             SELECT
+
                 CAST(
                     strftime('%H', trip_date)
                     AS INTEGER
@@ -970,6 +1108,7 @@ with tab_time:
         )
 
         if not hours.empty:
+
             st.bar_chart(
                 hours.set_index("hour")
             )
@@ -982,7 +1121,9 @@ with tab_time:
             conn,
             """
             SELECT
+
                 strftime('%w', trip_date) AS dow,
+
                 COUNT(*) AS trips
 
             FROM trips
@@ -1024,6 +1165,7 @@ with tab_routes:
         conn,
         """
         SELECT
+
             pickup_location,
             drop_location,
             COUNT(*) AS trips,
@@ -1071,10 +1213,9 @@ with tab_routes:
         )
 
         if not pickup.empty:
+
             st.bar_chart(
-                pickup.set_index(
-                    "pickup_location"
-                )
+                pickup.set_index("pickup_location")
             )
 
     with col2:
@@ -1097,10 +1238,9 @@ with tab_routes:
         )
 
         if not drop.empty:
+
             st.bar_chart(
-                drop.set_index(
-                    "drop_location"
-                )
+                drop.set_index("drop_location")
             )
 
 
@@ -1116,12 +1256,14 @@ with tab_trends:
         conn,
         """
         SELECT
+
             strftime('%Y-%m', trip_date) AS month,
 
             SUM(
                 CASE
                     WHEN trip_status = 'Completed'
-                    THEN fare ELSE 0
+                    THEN fare
+                    ELSE 0
                 END
             ) AS revenue,
 
@@ -1144,9 +1286,7 @@ with tab_trends:
             st.subheader("💰 Monthly Revenue")
 
             st.line_chart(
-                monthly.set_index("month")[
-                    ["revenue"]
-                ]
+                monthly.set_index("month")[["revenue"]]
             )
 
         with col2:
@@ -1154,9 +1294,7 @@ with tab_trends:
             st.subheader("🚖 Monthly Trips")
 
             st.bar_chart(
-                monthly.set_index("month")[
-                    ["total_trips"]
-                ]
+                monthly.set_index("month")[["total_trips"]]
             )
 
         monthly["mom_growth_pct"] = (
@@ -1190,19 +1328,16 @@ with tab_insights:
     st.header("🔍 Business Insights")
 
     st.caption(
-        "These insights are calculated from live SQL queries."
+        "These insights are calculated live from your current data."
     )
 
     insight_lines = []
-
-    # --------------------------------------------------------
-    # Cancellation
-    # --------------------------------------------------------
 
     cancel_by_vehicle = query(
         conn,
         """
         SELECT
+
             d.vehicle_type,
 
             ROUND(
@@ -1210,7 +1345,8 @@ with tab_insights:
                 SUM(
                     CASE
                         WHEN t.trip_status = 'Cancelled'
-                        THEN 1 ELSE 0
+                        THEN 1
+                        ELSE 0
                     END
                 ) / COUNT(*),
                 1
@@ -1249,15 +1385,11 @@ with tab_insights:
             + line
         )
 
-
-    # --------------------------------------------------------
-    # Revenue concentration
-    # --------------------------------------------------------
-
     rider_rev = query(
         conn,
         """
         SELECT
+
             rider_id,
             SUM(fare) AS spend
 
@@ -1303,11 +1435,6 @@ with tab_insights:
                 + line
             )
 
-
-    # --------------------------------------------------------
-    # Rush hour
-    # --------------------------------------------------------
-
     surge = query(
         conn,
         """
@@ -1322,6 +1449,7 @@ with tab_insights:
                 THEN 'Rush Hour'
 
                 ELSE 'Off-Peak'
+
             END AS period,
 
             AVG(
@@ -1376,7 +1504,6 @@ with tab_insights:
                 + line
             )
 
-
     if not insight_lines:
 
         st.info(
@@ -1393,7 +1520,7 @@ with tab_chat:
     st.header("💬 Ask the Data")
 
     st.caption(
-        "Ask questions about the current dashboard in plain English."
+        "Ask questions about your current dashboard in plain English."
     )
 
     current_context = f"""
@@ -1447,6 +1574,8 @@ DATA:
                 }
             )
 
+            st.rerun()
+
     for message in st.session_state.chat_history:
 
         with st.chat_message(
@@ -1457,11 +1586,9 @@ DATA:
                 message["content"]
             )
 
-
     question = st.chat_input(
         "Ask something about the data..."
     )
-
 
     if question:
 
@@ -1478,6 +1605,10 @@ DATA:
                 "content": system_prompt
             }
         ] + st.session_state.chat_history
+
+        with st.chat_message("user"):
+
+            st.markdown(question)
 
         with st.chat_message("assistant"):
 
@@ -1504,14 +1635,11 @@ DATA:
                         }
                     )
 
-
     if st.session_state.chat_history:
 
         st.divider()
 
-        if st.button(
-            "🗑️ Clear Chat"
-        ):
+        if st.button("🗑️ Clear Chat"):
 
             st.session_state.chat_history = []
 
@@ -1545,9 +1673,7 @@ with tab_raw:
 
             sql_clean = sql.strip().lower()
 
-            if not sql_clean.startswith(
-                "select"
-            ):
+            if not sql_clean.startswith("select"):
 
                 st.error(
                     "For safety, only SELECT queries are allowed."
@@ -1623,10 +1749,10 @@ st.divider()
 st.markdown(
     """
     <div class="footer">
-        🚖 RideFlow Analytics &nbsp;•&nbsp;
-        Built with Streamlit + SQLite + Groq AI
+        🚖 <b>RideFlow Analytics</b>
+        • Built with Streamlit + SQLite + Groq AI
         <br>
-        Edit data → Explore analytics → Ask the data
+        Edit Data → Explore Analytics → Discover Insights → Ask the Data
     </div>
     """,
     unsafe_allow_html=True
