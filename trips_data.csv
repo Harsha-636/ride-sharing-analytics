@@ -1,0 +1,501 @@
+trip_id,rider_id,driver_id,trip_date,pickup_location,drop_location,distance_km,fare,trip_status,payment_method
+2008,18,102,2024-10-01 09:10:00,Velachery,Adyar,16.8,450.0,Completed,Card
+2301,9,107,2024-10-01 09:53:00,Colaba,Powai,26.1,726.0,Completed,Card
+2052,33,105,2024-10-01 10:37:00,Velachery,Anna Nagar,13.9,208.0,Completed,Card
+2243,34,105,2024-10-01 18:21:00,Anna Nagar,OMR,4.0,64.0,Completed,UPI
+2048,26,117,2024-10-01 19:03:00,Noida,Saket,11.7,227.0,Completed,Card
+2248,22,107,2024-10-02 08:22:00,BKC,Andheri,20.9,561.0,Completed,UPI
+2221,12,114,2024-10-02 12:31:00,Koramangala,Electronic City,6.8,138.0,Completed,UPI
+2212,29,101,2024-10-02 13:44:00,Bandra,Powai,4.3,74.0,Completed,UPI
+2292,17,112,2024-10-02 20:36:00,Karol Bagh,Saket,8.2,137.0,Completed,Card
+2422,40,107,2024-10-02 21:51:00,Andheri,Colaba,25.0,542.0,Completed,UPI
+2250,3,108,2024-10-03 01:21:00,Gachibowli,Jubilee Hills,6.6,132.0,Completed,Cash
+2393,14,105,2024-10-03 04:58:00,Adyar,Anna Nagar,4.9,72.0,Cancelled,UPI
+2109,24,112,2024-10-03 08:46:00,Karol Bagh,Connaught Place,22.2,423.0,Completed,UPI
+2172,35,118,2024-10-03 19:51:00,MG Road,Whitefield,25.9,713.0,Completed,Card
+2362,17,112,2024-10-03 20:38:00,Noida,Saket,17.2,262.0,Cancelled,Card
+2011,12,118,2024-10-04 06:51:00,MG Road,Koramangala,6.6,151.0,Completed,UPI
+2104,29,107,2024-10-04 19:15:00,Powai,Andheri,12.1,319.0,Completed,Cash
+2045,39,108,2024-10-04 22:37:00,Banjara Hills,Hitech City,23.4,517.0,Completed,UPI
+2054,10,116,2024-10-05 05:55:00,Hinjewadi,Viman Nagar,5.0,87.0,Cancelled,UPI
+2368,11,101,2024-10-05 05:55:00,Powai,Worli,27.4,494.0,Completed,UPI
+2155,5,110,2024-10-05 08:49:00,Jubilee Hills,Gachibowli,27.8,413.0,Completed,Cash
+2116,39,110,2024-10-05 10:23:00,Hitech City,Gachibowli,26.7,306.0,Cancelled,UPI
+2314,40,101,2024-10-06 08:24:00,BKC,Colaba,21.0,458.0,Completed,Card
+2159,4,101,2024-10-06 08:48:00,Andheri,Bandra,15.3,338.0,Completed,Card
+2087,5,110,2024-10-06 18:55:00,Hitech City,Jubilee Hills,13.4,198.0,Completed,UPI
+2039,22,101,2024-10-07 01:52:00,Andheri,Powai,15.0,272.0,Completed,UPI
+2306,25,102,2024-10-07 08:18:00,OMR,Anna Nagar,23.9,663.0,Completed,Card
+2356,37,106,2024-10-07 20:02:00,Hitech City,Gachibowli,24.4,545.0,Completed,UPI
+2440,35,118,2024-10-07 20:03:00,Whitefield,Indiranagar,3.9,84.0,Completed,Card
+2092,18,115,2024-10-08 09:28:00,T Nagar,Adyar,11.9,321.0,Completed,Cash
+2094,31,114,2024-10-08 13:45:00,Whitefield,MG Road,3.5,83.0,Completed,Card
+2195,18,115,2024-10-09 14:11:00,OMR,Adyar,7.5,153.0,Completed,UPI
+2316,1,115,2024-10-09 18:55:00,Velachery,T Nagar,7.7,222.0,Completed,Card
+2119,8,105,2024-10-10 07:05:00,Kothrud,Baner,20.6,310.0,Completed,UPI
+2471,3,104,2024-10-10 09:01:00,Jubilee Hills,Banjara Hills,19.1,343.0,Cancelled,UPI
+2469,17,109,2024-10-10 09:21:00,Connaught Place,Gurgaon,26.9,733.0,Completed,UPI
+2099,9,101,2024-10-10 14:49:00,Colaba,Worli,3.5,58.0,Completed,UPI
+2183,20,118,2024-10-10 23:31:00,Electronic City,MG Road,14.2,301.0,Cancelled,UPI
+2423,27,105,2024-10-11 10:17:00,Adyar,Anna Nagar,3.7,50,Completed,UPI
+2018,11,113,2024-10-11 20:21:00,Andheri,Bandra,19.7,228.0,Cancelled,UPI
+2233,21,102,2024-10-12 06:32:00,T Nagar,OMR,9.1,215.0,Cancelled,UPI
+2229,10,109,2024-10-12 10:26:00,Kothrud,Viman Nagar,27.4,590.0,Cancelled,UPI
+2370,35,114,2024-10-12 19:09:00,Koramangala,Whitefield,2.5,78.0,Completed,UPI
+2482,1,102,2024-10-12 19:26:00,Velachery,Anna Nagar,7.8,219.0,Completed,UPI
+2419,13,105,2024-10-12 20:50:00,Anna Nagar,T Nagar,4.8,78.0,Completed,UPI
+2005,40,113,2024-10-13 09:08:00,BKC,Andheri,24.9,370.0,Cancelled,Cash
+2078,26,116,2024-10-13 09:23:00,Noida,Dwarka,4.2,89.0,Cancelled,UPI
+2209,4,101,2024-10-13 12:07:00,Bandra,Powai,14.1,269.0,Completed,Cash
+2057,6,116,2024-10-13 12:28:00,Noida,Gurgaon,25.5,369.0,Completed,UPI
+2386,32,106,2024-10-13 19:42:00,Jubilee Hills,Hitech City,18.4,509.0,Cancelled,UPI
+2442,6,116,2024-10-13 20:49:00,Dwarka,Karol Bagh,8.4,118.0,Completed,Card
+2486,30,102,2024-10-14 02:10:00,T Nagar,Velachery,15.6,330.0,Completed,UPI
+2193,22,113,2024-10-14 10:15:00,Colaba,Bandra,16.6,194.0,Completed,UPI
+2381,10,118,2024-10-14 10:50:00,Kothrud,Viman Nagar,21.2,452.0,Completed,Card
+2416,3,111,2024-10-14 12:56:00,Gachibowli,Hitech City,16.2,306.0,Cancelled,UPI
+2181,33,105,2024-10-14 18:38:00,Adyar,OMR,24.5,445.0,Completed,Card
+2285,9,107,2024-10-14 19:07:00,Andheri,Powai,7.6,200.0,Completed,Card
+2439,36,115,2024-10-14 19:17:00,Anna Nagar,OMR,17.1,460.0,Completed,Cash
+2302,12,114,2024-10-14 19:32:00,Indiranagar,Electronic City,27.5,769.0,Completed,UPI
+2455,31,118,2024-10-15 01:09:00,Electronic City,Koramangala,14.4,304.0,Completed,UPI
+2479,5,104,2024-10-15 12:04:00,Gachibowli,Jubilee Hills,11.1,177.0,Completed,UPI
+2298,24,116,2024-10-15 18:21:00,Gurgaon,Karol Bagh,16.5,306.0,Cancelled,Cash
+2400,37,104,2024-10-15 19:12:00,Hitech City,Gachibowli,17.6,316.0,Completed,Cash
+2254,6,116,2024-10-15 19:57:00,Karol Bagh,Gurgaon,4.8,91.0,Completed,Cash
+2305,21,115,2024-10-15 20:36:00,Velachery,OMR,24.9,545.0,Cancelled,UPI
+2429,30,115,2024-10-16 10:26:00,Velachery,T Nagar,11.0,244.0,Completed,UPI
+2086,19,108,2024-10-16 12:08:00,Jubilee Hills,Hitech City,20.4,449.0,Completed,Cash
+2165,14,102,2024-10-16 12:44:00,Adyar,Anna Nagar,12.6,269.0,Completed,UPI
+2344,9,113,2024-10-16 20:10:00,Andheri,Bandra,15.5,195.0,Completed,Card
+2123,38,109,2024-10-17 00:53:00,Connaught Place,Saket,6.4,131.0,Completed,Card
+2459,18,105,2024-10-17 09:00:00,T Nagar,Anna Nagar,25.7,489.0,Completed,UPI
+2258,14,102,2024-10-17 10:27:00,Anna Nagar,Adyar,23.8,516.0,Completed,Cash
+2480,8,118,2024-10-18 03:48:00,Hinjewadi,Shivajinagar,11.1,233.0,Completed,UPI
+2105,22,101,2024-10-18 07:44:00,Bandra,Powai,13.9,235.0,Cancelled,UPI
+2263,7,101,2024-10-18 13:17:00,Worli,Powai,17.9,310.0,Completed,Cash
+2452,19,106,2024-10-18 18:46:00,Jubilee Hills,Hitech City,13.6,389.0,Cancelled,Card
+2206,26,116,2024-10-19 09:24:00,Dwarka,Connaught Place,18.7,362.0,Cancelled,Card
+2141,26,112,2024-10-19 10:05:00,Gurgaon,Dwarka,19.2,295.0,Completed,Cash
+2260,27,102,2024-10-19 18:59:00,T Nagar,Adyar,22.5,630.0,Completed,Cash
+2059,32,111,2024-10-19 19:16:00,Banjara Hills,Gachibowli,25.5,579.0,Completed,UPI
+2448,38,103,2024-10-19 19:24:00,Saket,Karol Bagh,13.9,304.0,Completed,UPI
+2058,24,116,2024-10-19 20:50:00,Noida,Karol Bagh,7.0,108.0,Completed,Card
+2032,30,115,2024-10-20 14:17:00,Adyar,Velachery,14.4,327.0,Completed,UPI
+2125,38,117,2024-10-20 20:21:00,Saket,Connaught Place,23.5,338.0,Cancelled,Card
+2311,30,115,2024-10-20 22:03:00,Adyar,OMR,15.0,332.0,Completed,Card
+2320,2,116,2024-10-21 09:50:00,Saket,Gurgaon,27.0,496.0,Completed,Cash
+2383,39,111,2024-10-21 09:52:00,Hitech City,Jubilee Hills,11.9,253.0,Completed,UPI
+2223,11,107,2024-10-21 10:43:00,Worli,Andheri,8.3,183.0,Cancelled,Cash
+2294,1,115,2024-10-21 19:55:00,Anna Nagar,T Nagar,21.7,591.0,Completed,UPI
+2147,8,111,2024-10-21 20:11:00,Hinjewadi,Kothrud,22.7,411.0,Completed,UPI
+2100,25,102,2024-10-21 20:51:00,Anna Nagar,Velachery,3.6,75.0,Completed,Cash
+2481,24,117,2024-10-22 00:08:00,Connaught Place,Saket,12.1,171.0,Completed,UPI
+2337,12,118,2024-10-22 09:38:00,Electronic City,Whitefield,8.4,228.0,Cancelled,UPI
+2169,32,110,2024-10-22 18:46:00,Jubilee Hills,Banjara Hills,25.9,390.0,Completed,UPI
+2462,8,102,2024-10-22 19:47:00,Baner,Shivajinagar,12.2,342.0,Completed,UPI
+2485,31,118,2024-10-23 00:41:00,Koramangala,Electronic City,7.8,164.0,Completed,Cash
+2310,5,106,2024-10-23 08:27:00,Hitech City,Jubilee Hills,9.2,243.0,Completed,UPI
+2360,31,114,2024-10-23 10:33:00,Electronic City,Koramangala,22.5,489.0,Completed,Card
+2265,37,104,2024-10-23 12:15:00,Banjara Hills,Gachibowli,3.8,53.0,Completed,UPI
+2435,34,105,2024-10-23 12:58:00,T Nagar,Velachery,15.4,240.0,Completed,UPI
+2246,19,106,2024-10-23 22:25:00,Banjara Hills,Jubilee Hills,17.9,406.0,Completed,UPI
+2291,31,118,2024-10-24 14:01:00,MG Road,Indiranagar,26.0,560.0,Completed,UPI
+2194,26,109,2024-10-24 18:47:00,Saket,Noida,14.0,383.0,Cancelled,UPI
+2443,24,116,2024-10-24 19:29:00,Dwarka,Connaught Place,4.2,67.0,Completed,Cash
+2412,18,102,2024-10-25 10:39:00,OMR,Anna Nagar,17.7,381.0,Cancelled,UPI
+2489,23,107,2024-10-26 10:03:00,BKC,Bandra,5.3,116.0,Completed,Card
+2387,5,104,2024-10-27 01:29:00,Banjara Hills,Gachibowli,16.7,264.0,Completed,UPI
+2366,17,103,2024-10-27 08:59:00,Dwarka,Saket,3.9,96.0,Completed,Cash
+2163,16,118,2024-10-27 09:54:00,Koramangala,Whitefield,16.2,455.0,Cancelled,UPI
+2232,35,118,2024-10-27 18:05:00,MG Road,Koramangala,23.6,655.0,Cancelled,Cash
+2297,33,115,2024-10-27 19:23:00,T Nagar,Anna Nagar,24.0,655.0,Completed,Card
+2304,36,115,2024-10-28 19:43:00,OMR,Anna Nagar,27.5,761.0,Completed,Card
+2466,29,107,2024-10-29 08:01:00,Colaba,Andheri,4.0,113.0,Completed,UPI
+2397,33,115,2024-10-29 19:28:00,Adyar,T Nagar,8.2,219.0,Completed,UPI
+2190,7,107,2024-10-29 20:44:00,Colaba,Bandra,13.9,303.0,Completed,Card
+2408,36,105,2024-10-29 23:08:00,T Nagar,Velachery,15.8,242.0,Completed,Card
+2282,26,103,2024-10-30 03:46:00,Connaught Place,Saket,15.4,266.0,Completed,Card
+2394,38,109,2024-10-30 10:25:00,Saket,Noida,21.2,473.0,Completed,UPI
+2379,14,102,2024-10-31 08:50:00,OMR,T Nagar,12.6,339.0,Completed,Card
+2445,38,116,2024-10-31 19:24:00,Connaught Place,Gurgaon,7.8,152.0,Completed,Cash
+2262,22,113,2024-10-31 19:57:00,BKC,Andheri,11.1,175.0,Completed,Cash
+2280,1,115,2024-11-01 04:08:00,T Nagar,Velachery,15.3,331.0,Cancelled,UPI
+2478,40,101,2024-11-01 08:40:00,Andheri,BKC,23.4,514.0,Completed,Cash
+2051,31,118,2024-11-01 08:58:00,Electronic City,MG Road,24.5,667.0,Completed,UPI
+2215,21,102,2024-11-01 10:38:00,Adyar,OMR,22.4,499.0,Completed,Card
+2415,21,105,2024-11-01 14:47:00,Velachery,OMR,12.6,202.0,Completed,Card
+2389,34,115,2024-11-01 21:47:00,Adyar,Velachery,21.5,481.0,Completed,Card
+2468,8,106,2024-11-02 18:40:00,Viman Nagar,Kothrud,22.1,614.0,Completed,Card
+2283,25,115,2024-11-02 20:03:00,T Nagar,Adyar,3.7,70.0,Completed,UPI
+2218,5,104,2024-11-03 06:32:00,Hitech City,Jubilee Hills,20.7,319.0,Completed,UPI
+2022,31,118,2024-11-03 13:49:00,Electronic City,Indiranagar,18.5,400.0,Cancelled,UPI
+2173,17,112,2024-11-04 09:29:00,Saket,Noida,27.8,513.0,Completed,Cash
+2464,18,105,2024-11-04 10:37:00,Velachery,Adyar,22.2,340.0,Completed,Card
+2388,4,113,2024-11-04 13:04:00,Bandra,Colaba,5.0,67.0,Completed,UPI
+2271,5,108,2024-11-05 04:41:00,Hitech City,Banjara Hills,6.3,147.0,Completed,Cash
+2219,35,114,2024-11-05 08:51:00,MG Road,Koramangala,12.5,348.0,Completed,Card
+2038,35,114,2024-11-05 09:44:00,MG Road,Indiranagar,5.1,126.0,Completed,UPI
+2237,12,118,2024-11-05 10:39:00,Electronic City,MG Road,19.0,418.0,Completed,UPI
+2324,16,114,2024-11-06 05:31:00,Indiranagar,Koramangala,18.2,395.0,Completed,Card
+2062,39,110,2024-11-06 09:14:00,Gachibowli,Hitech City,8.9,141.0,Completed,Card
+2430,13,115,2024-11-06 09:32:00,Adyar,OMR,22.1,596.0,Completed,UPI
+2124,23,113,2024-11-06 10:35:00,BKC,Bandra,18.4,224.0,Cancelled,Card
+2402,16,114,2024-11-06 18:19:00,Indiranagar,Electronic City,3.1,77.0,Completed,UPI
+2417,4,101,2024-11-07 04:29:00,Bandra,Powai,10.0,193.0,Completed,Cash
+2426,36,102,2024-11-07 09:21:00,Adyar,Velachery,15.9,443.0,Completed,UPI
+2274,36,102,2024-11-07 09:46:00,Adyar,Anna Nagar,26.6,743.0,Completed,UPI
+2405,7,101,2024-11-07 18:24:00,Colaba,Andheri,25.5,573.0,Completed,UPI
+2114,21,115,2024-11-07 19:10:00,Velachery,OMR,13.9,389.0,Completed,Card
+2185,26,112,2024-11-07 20:50:00,Noida,Gurgaon,12.1,191.0,Completed,UPI
+2257,16,118,2024-11-08 00:32:00,Electronic City,MG Road,5.6,131.0,Completed,Cash
+2210,9,113,2024-11-08 04:05:00,Worli,BKC,8.9,103.0,Completed,UPI
+2213,21,105,2024-11-08 12:41:00,Anna Nagar,T Nagar,16.0,225.0,Completed,UPI
+2127,16,118,2024-11-08 18:28:00,Indiranagar,Electronic City,14.3,388.0,Completed,Cash
+2060,23,113,2024-11-08 19:29:00,BKC,Bandra,28.0,431.0,Cancelled,UPI
+2149,18,105,2024-11-08 19:41:00,OMR,Anna Nagar,4.1,65.0,Completed,UPI
+2130,30,105,2024-11-09 09:32:00,Velachery,Anna Nagar,8.0,146.0,Cancelled,UPI
+2269,17,117,2024-11-09 13:27:00,Dwarka,Gurgaon,14.2,205.0,Completed,Card
+2150,33,115,2024-11-09 19:23:00,Adyar,Anna Nagar,8.1,212.0,Completed,Card
+2197,6,109,2024-11-10 08:23:00,Karol Bagh,Noida,15.5,424.0,Completed,UPI
+2357,34,105,2024-11-10 08:24:00,Adyar,T Nagar,10.8,206.0,Completed,Card
+2411,8,106,2024-11-10 08:48:00,Kothrud,Viman Nagar,27.0,737.0,Completed,Cash
+2180,10,113,2024-11-10 09:28:00,Kothrud,Baner,5.1,64.0,Completed,Card
+2167,14,105,2024-11-10 18:47:00,Anna Nagar,T Nagar,9.1,184.0,Completed,UPI
+2002,35,114,2024-11-10 20:58:00,Electronic City,MG Road,4.0,88.0,Completed,UPI
+2088,26,103,2024-11-11 07:53:00,Karol Bagh,Gurgaon,4.7,95.0,Completed,Card
+2144,13,105,2024-11-11 08:41:00,Adyar,Anna Nagar,16.1,309.0,Completed,Cash
+2027,17,116,2024-11-11 09:17:00,Dwarka,Gurgaon,23.8,445.0,Completed,UPI
+2438,20,114,2024-11-11 10:20:00,Indiranagar,Whitefield,9.5,199.0,Completed,Cash
+2226,19,108,2024-11-11 19:12:00,Hitech City,Jubilee Hills,22.5,626.0,Completed,UPI
+2143,7,107,2024-11-12 08:00:00,Colaba,Bandra,12.9,368.0,Completed,UPI
+2222,8,101,2024-11-12 08:16:00,Baner,Hinjewadi,15.2,342.0,Cancelled,Cash
+2112,4,113,2024-11-12 13:56:00,Powai,Worli,25.3,300.0,Completed,UPI
+2168,10,107,2024-11-12 18:31:00,Baner,Kothrud,9.1,260.0,Completed,Card
+2184,40,107,2024-11-12 20:38:00,Bandra,BKC,10.7,249.0,Completed,UPI
+2465,13,115,2024-11-13 05:35:00,T Nagar,Adyar,23.7,507.0,Cancelled,UPI
+2273,37,106,2024-11-13 10:40:00,Jubilee Hills,Hitech City,11.6,249.0,Completed,Card
+2300,13,115,2024-11-13 20:53:00,Adyar,T Nagar,22.2,487.0,Completed,Cash
+2340,31,118,2024-11-14 14:36:00,Whitefield,Indiranagar,5.9,129.0,Completed,Cash
+2031,37,104,2024-11-14 18:32:00,Hitech City,Banjara Hills,24.2,463.0,Cancelled,Cash
+2433,37,108,2024-11-15 08:21:00,Jubilee Hills,Hitech City,16.1,433.0,Completed,UPI
+2036,36,105,2024-11-15 09:14:00,T Nagar,Anna Nagar,10.5,204.0,Completed,Card
+2330,10,116,2024-11-15 12:04:00,Kothrud,Baner,8.5,133.0,Completed,Card
+2348,18,105,2024-11-15 18:33:00,T Nagar,Adyar,25.9,487.0,Completed,Card
+2095,40,101,2024-11-16 09:49:00,BKC,Colaba,3.8,89.0,Completed,UPI
+2253,10,102,2024-11-16 10:40:00,Baner,Viman Nagar,7.6,153.0,Completed,UPI
+2152,34,115,2024-11-16 18:53:00,Adyar,Anna Nagar,17.1,460.0,Completed,Card
+2342,21,105,2024-11-16 20:16:00,OMR,Velachery,16.9,257.0,Completed,UPI
+2108,6,117,2024-11-16 20:50:00,Saket,Karol Bagh,3.0,56.0,Cancelled,UPI
+2484,7,113,2024-11-16 21:14:00,Powai,Bandra,9.5,105.0,Completed,Card
+2380,31,114,2024-11-17 09:05:00,Electronic City,Koramangala,26.2,735.0,Completed,UPI
+2133,7,107,2024-11-17 09:48:00,Bandra,Worli,17.9,489.0,Cancelled,UPI
+2225,5,111,2024-11-17 18:11:00,Gachibowli,Hitech City,27.5,632.0,Cancelled,UPI
+2207,18,115,2024-11-17 20:00:00,T Nagar,Velachery,18.7,417.0,Completed,Card
+2499,4,101,2024-11-17 20:53:00,Andheri,Powai,20.6,376.0,Completed,UPI
+2451,25,105,2024-11-18 08:30:00,Anna Nagar,Adyar,16.7,323.0,Completed,UPI
+2308,19,104,2024-11-18 23:20:00,Banjara Hills,Jubilee Hills,21.5,314.0,Completed,Cash
+2238,6,112,2024-11-19 10:15:00,Karol Bagh,Saket,22.8,357.0,Completed,UPI
+2096,36,115,2024-11-19 14:58:00,Adyar,Anna Nagar,11.0,244.0,Completed,UPI
+2129,4,107,2024-11-19 18:52:00,BKC,Colaba,20.9,565.0,Completed,Cash
+2196,21,115,2024-11-19 19:22:00,Velachery,Anna Nagar,23.3,647.0,Completed,Card
+2259,5,104,2024-11-19 19:33:00,Jubilee Hills,Banjara Hills,22.6,427.0,Completed,UPI
+2461,32,110,2024-11-19 20:10:00,Gachibowli,Hitech City,21.2,250.0,Completed,Card
+2266,30,115,2024-11-20 08:15:00,OMR,Velachery,17.6,474.0,Completed,Card
+2154,20,114,2024-11-20 08:37:00,Whitefield,Electronic City,13.3,372.0,Completed,UPI
+2392,29,107,2024-11-20 09:38:00,Andheri,Colaba,5.9,174.0,Cancelled,Cash
+2399,13,105,2024-11-20 10:47:00,Adyar,Anna Nagar,8.7,123.0,Completed,Card
+2470,13,115,2024-11-20 18:34:00,Velachery,Anna Nagar,18.2,489.0,Completed,UPI
+2472,10,111,2024-11-20 19:30:00,Viman Nagar,Baner,24.0,548.0,Completed,Card
+2003,5,106,2024-11-21 03:37:00,Banjara Hills,Hitech City,4.6,106.0,Completed,UPI
+2017,12,118,2024-11-21 09:13:00,Indiranagar,Koramangala,14.4,394.0,Completed,UPI
+2447,12,118,2024-11-21 10:49:00,Indiranagar,Koramangala,15.1,337.0,Cancelled,Cash
+2174,3,104,2024-11-21 18:40:00,Banjara Hills,Hitech City,6.9,129.0,Completed,Card
+2047,11,107,2024-11-22 09:52:00,Colaba,Andheri,14.1,382.0,Completed,Cash
+2385,19,108,2024-11-22 10:42:00,Banjara Hills,Jubilee Hills,23.8,512.0,Completed,UPI
+2414,1,105,2024-11-22 18:48:00,Anna Nagar,T Nagar,7.0,145.0,Completed,Card
+2042,11,101,2024-11-22 19:02:00,Bandra,BKC,20.5,467.0,Completed,Card
+2318,15,109,2024-11-22 19:20:00,Hinjewadi,Viman Nagar,19.7,543.0,Completed,Card
+2457,37,108,2024-11-23 04:18:00,Gachibowli,Banjara Hills,20.2,447.0,Completed,Card
+2275,15,110,2024-11-23 09:37:00,Kothrud,Viman Nagar,24.2,362.0,Completed,Card
+2083,14,105,2024-11-23 09:46:00,OMR,T Nagar,25.0,458.0,Completed,UPI
+2334,8,108,2024-11-23 13:43:00,Viman Nagar,Baner,7.9,164.0,Completed,UPI
+2069,38,109,2024-11-23 14:26:00,Gurgaon,Connaught Place,20.1,434.0,Completed,UPI
+2338,33,115,2024-11-23 18:30:00,Adyar,T Nagar,24.9,686.0,Completed,UPI
+2487,38,112,2024-11-23 19:14:00,Connaught Place,Gurgaon,8.3,148.0,Completed,UPI
+2151,39,108,2024-11-23 21:51:00,Gachibowli,Banjara Hills,19.8,438.0,Completed,Card
+2325,24,112,2024-11-24 08:45:00,Karol Bagh,Dwarka,9.6,176.0,Completed,UPI
+2020,1,102,2024-11-24 14:33:00,Velachery,T Nagar,16.7,380.0,Completed,UPI
+2208,26,109,2024-11-24 19:53:00,Gurgaon,Karol Bagh,16.5,443.0,Completed,Card
+2293,40,101,2024-11-25 09:42:00,Worli,Powai,6.3,152.0,Completed,Card
+2077,33,115,2024-11-25 14:41:00,Adyar,Anna Nagar,13.5,309.0,Completed,Cash
+2179,36,105,2024-11-25 19:05:00,Adyar,OMR,22.9,436.0,Cancelled,UPI
+2084,6,112,2024-11-26 19:26:00,Gurgaon,Noida,21.8,397.0,Completed,UPI
+2117,24,112,2024-11-26 20:23:00,Dwarka,Gurgaon,19.1,279.0,Cancelled,Card
+2044,20,118,2024-11-26 20:25:00,Koramangala,Indiranagar,13.7,304.0,Completed,Card
+2365,26,112,2024-11-26 22:33:00,Dwarka,Karol Bagh,6.8,113.0,Cancelled,UPI
+2231,21,105,2024-11-27 08:08:00,Adyar,T Nagar,6.5,112.0,Completed,UPI
+2035,31,118,2024-11-27 08:25:00,MG Road,Koramangala,19.4,530.0,Completed,UPI
+2101,40,107,2024-11-27 09:57:00,Bandra,BKC,19.8,547.0,Completed,Card
+2326,31,118,2024-11-27 10:06:00,MG Road,Whitefield,24.0,539.0,Completed,Card
+2315,33,115,2024-11-27 10:12:00,OMR,T Nagar,26.7,577.0,Completed,Card
+2303,22,107,2024-11-27 10:44:00,Worli,Colaba,10.1,228.0,Completed,Card
+2278,4,101,2024-11-27 12:36:00,Bandra,Powai,22.5,413.0,Cancelled,UPI
+2374,30,115,2024-11-27 18:20:00,T Nagar,Anna Nagar,3.8,106.0,Completed,UPI
+2418,30,115,2024-11-27 18:49:00,Adyar,Anna Nagar,12.5,338.0,Cancelled,UPI
+2255,24,109,2024-11-27 19:14:00,Gurgaon,Saket,4.1,120.0,Completed,UPI
+2307,3,108,2024-11-27 21:55:00,Gachibowli,Hitech City,19.0,415.0,Completed,Card
+2075,34,105,2024-11-28 09:54:00,Velachery,Adyar,20.0,375.0,Completed,UPI
+2406,13,115,2024-11-28 12:15:00,Adyar,OMR,11.0,239.0,Completed,UPI
+2323,4,113,2024-11-29 10:04:00,BKC,Andheri,7.5,92.0,Completed,UPI
+2029,8,107,2024-11-29 12:38:00,Baner,Hinjewadi,22.3,481.0,Completed,Card
+2491,38,116,2024-11-29 14:55:00,Noida,Karol Bagh,10.8,164.0,Completed,Card
+2497,25,105,2024-11-29 18:41:00,Adyar,T Nagar,16.8,323.0,Cancelled,UPI
+2432,35,118,2024-11-29 20:03:00,Electronic City,Koramangala,16.9,377.0,Completed,UPI
+2224,16,114,2024-11-30 02:59:00,Whitefield,Indiranagar,8.2,173.0,Completed,UPI
+2488,15,103,2024-11-30 09:09:00,Shivajinagar,Viman Nagar,7.0,154.0,Completed,UPI
+2353,36,102,2024-11-30 10:17:00,Anna Nagar,Adyar,15.2,325.0,Completed,Cash
+2055,10,103,2024-11-30 10:44:00,Viman Nagar,Hinjewadi,24.2,446.0,Completed,UPI
+2074,8,103,2024-11-30 20:06:00,Viman Nagar,Shivajinagar,26.6,465.0,Completed,Cash
+2192,14,115,2024-12-01 10:44:00,Velachery,OMR,4.2,79.0,Completed,UPI
+2355,35,114,2024-12-01 10:55:00,Koramangala,Indiranagar,7.2,166.0,Completed,UPI
+2345,4,101,2024-12-01 12:30:00,Colaba,Powai,4.7,77.0,Completed,Card
+2290,25,115,2024-12-01 18:07:00,Anna Nagar,T Nagar,27.5,767.0,Cancelled,Cash
+2427,34,102,2024-12-01 20:18:00,Velachery,OMR,9.1,202.0,Completed,Cash
+2037,13,102,2024-12-01 20:38:00,OMR,T Nagar,23.7,515.0,Completed,UPI
+2264,27,115,2024-12-02 00:32:00,Anna Nagar,T Nagar,10.4,229.0,Completed,Cash
+2331,25,105,2024-12-02 05:06:00,Adyar,OMR,23.8,350.0,Completed,UPI
+2145,12,118,2024-12-02 06:50:00,Indiranagar,MG Road,26.4,595.0,Completed,Cash
+2236,22,101,2024-12-02 10:27:00,Worli,Powai,15.2,270.0,Completed,UPI
+2199,23,101,2024-12-02 14:32:00,Worli,Powai,12.9,232.0,Completed,UPI
+2382,17,103,2024-12-02 20:44:00,Dwarka,Noida,17.0,307.0,Completed,UPI
+2492,10,101,2024-12-02 21:02:00,Viman Nagar,Baner,14.7,274.0,Completed,UPI
+2023,18,105,2024-12-03 08:24:00,Anna Nagar,Adyar,4.1,74.0,Completed,UPI
+2187,27,115,2024-12-03 09:42:00,Anna Nagar,Velachery,22.6,609.0,Completed,UPI
+2068,3,108,2024-12-03 10:08:00,Jubilee Hills,Gachibowli,12.0,277.0,Completed,Card
+2247,37,104,2024-12-03 12:22:00,Hitech City,Banjara Hills,18.7,294.0,Completed,Card
+2249,11,107,2024-12-03 19:06:00,Powai,Colaba,19.1,531.0,Completed,UPI
+2428,40,113,2024-12-03 19:51:00,Bandra,Colaba,8.4,120.0,Cancelled,UPI
+2188,26,117,2024-12-04 06:34:00,Connaught Place,Gurgaon,20.4,315.0,Completed,Cash
+2118,32,111,2024-12-04 09:45:00,Jubilee Hills,Banjara Hills,27.9,621.0,Completed,UPI
+2333,31,114,2024-12-04 18:04:00,Electronic City,Koramangala,7.9,208.0,Completed,Card
+2040,37,108,2024-12-04 19:38:00,Gachibowli,Hitech City,12.2,348.0,Completed,Card
+2016,8,110,2024-12-04 19:44:00,Kothrud,Shivajinagar,7.4,116.0,Completed,Card
+2413,31,114,2024-12-04 20:23:00,MG Road,Indiranagar,15.0,319.0,Completed,UPI
+2135,38,112,2024-12-04 20:36:00,Gurgaon,Dwarka,23.3,346.0,Completed,Cash
+2420,25,115,2024-12-05 10:24:00,T Nagar,Anna Nagar,25.8,570.0,Completed,UPI
+2201,32,111,2024-12-05 10:52:00,Hitech City,Jubilee Hills,23.5,409.0,Completed,Card
+2065,22,101,2024-12-05 12:55:00,Worli,Powai,27.2,499.0,Completed,Card
+2128,21,115,2024-12-05 14:35:00,T Nagar,OMR,8.7,180.0,Completed,UPI
+2148,26,116,2024-12-05 18:11:00,Noida,Dwarka,10.8,195.0,Completed,UPI
+2217,34,102,2024-12-05 20:26:00,OMR,Anna Nagar,21.9,495.0,Completed,UPI
+2013,23,113,2024-12-05 21:21:00,Andheri,Worli,24.9,292.0,Completed,Cash
+2046,34,115,2024-12-06 06:40:00,Velachery,T Nagar,14.5,316.0,Completed,UPI
+2103,7,113,2024-12-06 08:17:00,Powai,Colaba,6.3,93.0,Completed,UPI
+2113,32,108,2024-12-06 09:05:00,Jubilee Hills,Hitech City,27.9,758.0,Completed,UPI
+2216,20,114,2024-12-06 09:18:00,Whitefield,MG Road,15.1,404.0,Completed,Card
+2281,19,110,2024-12-06 10:08:00,Hitech City,Gachibowli,11.7,131.0,Completed,Cash
+2134,22,107,2024-12-06 20:08:00,BKC,Colaba,10.6,230.0,Completed,Cash
+2102,25,115,2024-12-07 08:51:00,Adyar,Anna Nagar,24.8,669.0,Completed,UPI
+2436,22,107,2024-12-07 08:52:00,Colaba,Bandra,7.7,198.0,Completed,Cash
+2085,38,116,2024-12-07 09:38:00,Connaught Place,Karol Bagh,7.7,158.0,Completed,Card
+2431,37,111,2024-12-07 09:59:00,Jubilee Hills,Gachibowli,22.8,517.0,Completed,Card
+2030,20,118,2024-12-07 10:53:00,MG Road,Whitefield,20.3,441.0,Completed,Cash
+2175,37,104,2024-12-07 10:56:00,Jubilee Hills,Gachibowli,3.7,50,Completed,Cash
+2164,39,111,2024-12-07 14:46:00,Gachibowli,Jubilee Hills,7.8,153.0,Completed,Cash
+2021,30,115,2024-12-07 19:39:00,Adyar,Velachery,23.7,653.0,Completed,Card
+2131,31,118,2024-12-08 08:56:00,Koramangala,Electronic City,22.0,601.0,Completed,Card
+2474,6,112,2024-12-08 09:48:00,Gurgaon,Noida,7.0,117.0,Completed,UPI
+2137,40,107,2024-12-08 10:07:00,Bandra,Andheri,13.7,299.0,Completed,UPI
+2033,16,114,2024-12-08 14:39:00,Indiranagar,Koramangala,3.2,81.0,Completed,UPI
+2204,37,108,2024-12-08 19:45:00,Hitech City,Gachibowli,17.1,484.0,Completed,Cash
+2066,1,105,2024-12-08 20:43:00,OMR,Velachery,23.5,366.0,Cancelled,UPI
+2139,12,118,2024-12-08 20:43:00,Koramangala,Indiranagar,7.4,155.0,Completed,UPI
+2205,7,101,2024-12-09 02:44:00,Bandra,Worli,6.2,106.0,Completed,Cash
+2000,4,113,2024-12-09 03:10:00,Powai,Worli,14.8,189.0,Completed,UPI
+2025,27,115,2024-12-09 07:14:00,OMR,Velachery,14.9,324.0,Completed,Card
+2349,38,112,2024-12-09 08:29:00,Dwarka,Saket,2.6,50,Completed,Card
+2227,32,106,2024-12-09 08:59:00,Jubilee Hills,Banjara Hills,8.4,226.0,Completed,Cash
+2446,37,108,2024-12-09 10:04:00,Jubilee Hills,Banjara Hills,17.6,386.0,Completed,Cash
+2341,19,111,2024-12-09 10:47:00,Banjara Hills,Hitech City,15.8,285.0,Completed,UPI
+2267,23,107,2024-12-09 14:05:00,BKC,Andheri,12.4,263.0,Completed,Cash
+2476,25,102,2024-12-09 19:01:00,T Nagar,OMR,3.9,116.0,Cancelled,UPI
+2339,9,113,2024-12-09 23:41:00,Powai,Colaba,13.2,170.0,Completed,UPI
+2162,35,118,2024-12-10 02:51:00,Indiranagar,Whitefield,16.8,384.0,Completed,UPI
+2321,24,103,2024-12-10 08:00:00,Saket,Karol Bagh,12.5,283.0,Cancelled,UPI
+2050,36,102,2024-12-10 08:29:00,T Nagar,Anna Nagar,15.2,424.0,Completed,UPI
+2061,23,113,2024-12-10 10:25:00,BKC,Andheri,16.9,208.0,Completed,UPI
+2049,14,105,2024-12-10 10:31:00,T Nagar,Adyar,27.3,413.0,Completed,UPI
+2403,34,105,2024-12-10 12:44:00,T Nagar,Velachery,17.4,266.0,Cancelled,UPI
+2295,33,102,2024-12-10 18:05:00,Velachery,Adyar,22.9,628.0,Completed,UPI
+2234,29,113,2024-12-10 18:07:00,Andheri,Worli,23.7,370.0,Cancelled,Cash
+2343,14,105,2024-12-10 19:35:00,Adyar,Velachery,9.0,163.0,Completed,Card
+2132,13,105,2024-12-10 19:48:00,Adyar,OMR,23.5,444.0,Completed,UPI
+2176,37,104,2024-12-11 08:37:00,Gachibowli,Hitech City,23.4,452.0,Completed,Card
+2372,13,105,2024-12-11 10:47:00,Velachery,Adyar,8.1,109.0,Completed,Card
+2493,16,114,2024-12-11 19:13:00,MG Road,Koramangala,10.0,279.0,Cancelled,UPI
+2358,16,118,2024-12-11 19:27:00,MG Road,Indiranagar,20.4,557.0,Completed,UPI
+2067,2,117,2024-12-11 20:04:00,Karol Bagh,Dwarka,25.7,380.0,Completed,UPI
+2079,24,109,2024-12-11 21:21:00,Karol Bagh,Connaught Place,13.0,297.0,Completed,UPI
+2161,12,118,2024-12-11 23:42:00,Indiranagar,Koramangala,20.3,444.0,Completed,UPI
+2277,22,107,2024-12-12 02:20:00,Worli,Bandra,22.4,492.0,Completed,UPI
+2146,1,105,2024-12-12 05:18:00,Velachery,Adyar,25.2,367.0,Completed,UPI
+2082,18,115,2024-12-12 08:36:00,Velachery,T Nagar,6.1,172.0,Cancelled,Card
+2200,11,101,2024-12-12 13:02:00,BKC,Bandra,16.2,282.0,Completed,Card
+2242,37,106,2024-12-12 13:34:00,Hitech City,Banjara Hills,15.0,318.0,Completed,UPI
+2244,8,117,2024-12-12 14:25:00,Baner,Hinjewadi,11.1,161.0,Completed,Card
+2041,28,110,2024-12-12 20:06:00,Shivajinagar,Baner,9.2,98.0,Completed,Card
+2091,32,110,2024-12-12 20:41:00,Hitech City,Jubilee Hills,10.6,125.0,Completed,Card
+2335,3,106,2024-12-13 10:02:00,Gachibowli,Banjara Hills,6.7,160.0,Completed,UPI
+2279,28,113,2024-12-13 10:12:00,Kothrud,Hinjewadi,25.2,310.0,Completed,UPI
+2496,40,113,2024-12-13 12:39:00,BKC,Andheri,15.6,200.0,Completed,UPI
+2121,24,117,2024-12-13 14:08:00,Saket,Connaught Place,4.2,60.0,Completed,UPI
+2359,12,114,2024-12-13 14:17:00,MG Road,Indiranagar,24.3,525.0,Completed,Card
+2454,39,104,2024-12-13 14:32:00,Hitech City,Gachibowli,26.1,394.0,Cancelled,UPI
+2182,36,102,2024-12-13 18:08:00,OMR,Adyar,9.3,245.0,Completed,UPI
+2398,6,116,2024-12-13 19:05:00,Dwarka,Saket,13.6,261.0,Completed,UPI
+2409,27,102,2024-12-13 22:21:00,Velachery,Anna Nagar,7.8,161.0,Completed,Cash
+2122,27,105,2024-12-13 23:04:00,Velachery,Adyar,19.8,292.0,Completed,Card
+2235,24,103,2024-12-14 01:01:00,Connaught Place,Noida,25.5,457.0,Cancelled,Cash
+2240,31,118,2024-12-14 01:15:00,MG Road,Koramangala,16.1,363.0,Completed,Card
+2270,40,107,2024-12-14 20:53:00,BKC,Colaba,19.0,421.0,Completed,UPI
+2072,36,102,2024-12-15 05:49:00,Anna Nagar,T Nagar,9.6,226.0,Completed,Card
+2012,31,114,2024-12-15 08:14:00,Whitefield,MG Road,12.7,343.0,Cancelled,Card
+2186,37,106,2024-12-15 10:01:00,Jubilee Hills,Hitech City,7.8,181.0,Completed,UPI
+2332,25,105,2024-12-15 14:16:00,Velachery,Anna Nagar,15.7,231.0,Completed,UPI
+2230,26,103,2024-12-15 18:15:00,Gurgaon,Karol Bagh,24.2,557.0,Completed,Cash
+2463,28,101,2024-12-15 19:33:00,Hinjewadi,Baner,25.9,587.0,Completed,UPI
+2157,15,101,2024-12-15 20:27:00,Baner,Viman Nagar,23.5,415.0,Completed,UPI
+2369,35,114,2024-12-15 20:56:00,Electronic City,Indiranagar,15.8,352.0,Completed,UPI
+2203,16,114,2024-12-15 22:40:00,Indiranagar,MG Road,18.2,409.0,Completed,Cash
+2191,33,102,2024-12-16 09:58:00,T Nagar,Adyar,23.7,659.0,Completed,UPI
+2080,4,107,2024-12-16 10:13:00,Bandra,Powai,8.2,169.0,Completed,UPI
+2097,26,109,2024-12-16 10:24:00,Karol Bagh,Gurgaon,23.2,516.0,Completed,Card
+2395,37,104,2024-12-16 10:24:00,Banjara Hills,Jubilee Hills,26.0,385.0,Completed,UPI
+2160,21,115,2024-12-16 12:19:00,Anna Nagar,Adyar,13.0,279.0,Completed,Card
+2014,3,104,2024-12-16 13:27:00,Banjara Hills,Gachibowli,25.4,372.0,Cancelled,UPI
+2483,12,114,2024-12-16 18:40:00,Koramangala,Electronic City,13.2,365.0,Completed,Cash
+2107,8,116,2024-12-16 20:15:00,Shivajinagar,Kothrud,13.4,204.0,Completed,UPI
+2093,6,117,2024-12-16 20:50:00,Karol Bagh,Connaught Place,14.0,219.0,Completed,UPI
+2424,3,111,2024-12-17 00:06:00,Jubilee Hills,Banjara Hills,6.6,112.0,Completed,Card
+2178,5,108,2024-12-17 06:49:00,Hitech City,Banjara Hills,18.7,420.0,Completed,UPI
+2239,35,118,2024-12-17 09:11:00,Whitefield,Koramangala,17.7,473.0,Completed,UPI
+2106,10,118,2024-12-17 09:15:00,Kothrud,Hinjewadi,3.7,99.0,Completed,UPI
+2312,21,115,2024-12-17 10:10:00,Velachery,Adyar,4.8,97.0,Completed,UPI
+2276,40,101,2024-12-17 10:24:00,Colaba,BKC,13.0,245.0,Completed,Cash
+2076,6,112,2024-12-17 10:40:00,Saket,Karol Bagh,20.7,307.0,Completed,UPI
+2490,15,110,2024-12-17 14:57:00,Shivajinagar,Baner,4.7,67.0,Completed,Cash
+2347,19,106,2024-12-17 18:39:00,Gachibowli,Hitech City,3.4,86.0,Cancelled,UPI
+2444,19,108,2024-12-17 19:52:00,Banjara Hills,Gachibowli,16.7,446.0,Completed,UPI
+2352,15,111,2024-12-17 20:53:00,Kothrud,Shivajinagar,9.8,173.0,Completed,UPI
+2441,38,116,2024-12-18 08:45:00,Karol Bagh,Saket,4.5,97.0,Completed,Card
+2026,11,107,2024-12-18 09:37:00,Colaba,Andheri,4.6,124.0,Completed,UPI
+2019,16,118,2024-12-18 09:56:00,Electronic City,MG Road,20.8,569.0,Completed,UPI
+2346,25,105,2024-12-18 10:03:00,Anna Nagar,Velachery,13.7,197.0,Completed,Cash
+2251,22,113,2024-12-18 13:41:00,Bandra,Colaba,25.2,292.0,Cancelled,UPI
+2390,28,104,2024-12-18 19:42:00,Shivajinagar,Viman Nagar,26.3,505.0,Completed,Cash
+2024,14,105,2024-12-19 00:54:00,Adyar,Velachery,14.7,234.0,Completed,UPI
+2401,40,107,2024-12-19 08:12:00,Worli,BKC,6.5,186.0,Cancelled,Card
+2256,23,113,2024-12-19 08:53:00,Powai,Colaba,13.2,199.0,Completed,UPI
+2384,12,114,2024-12-19 12:20:00,Whitefield,Indiranagar,7.3,166.0,Completed,UPI
+2009,10,118,2024-12-19 19:08:00,Hinjewadi,Kothrud,11.8,337.0,Completed,UPI
+2367,7,107,2024-12-19 19:19:00,Bandra,Worli,21.3,584.0,Completed,Card
+2458,17,103,2024-12-20 08:42:00,Gurgaon,Saket,3.2,72.0,Cancelled,UPI
+2214,14,115,2024-12-20 18:05:00,T Nagar,Anna Nagar,21.7,599.0,Completed,Cash
+2364,22,107,2024-12-20 18:05:00,Bandra,BKC,8.3,223.0,Completed,UPI
+2475,25,102,2024-12-20 20:28:00,Anna Nagar,Adyar,3.4,61.0,Completed,UPI
+2313,24,112,2024-12-20 20:52:00,Karol Bagh,Connaught Place,5.4,76.0,Completed,Card
+2407,23,107,2024-12-20 21:17:00,Andheri,BKC,24.9,560.0,Completed,UPI
+2115,28,109,2024-12-21 01:42:00,Viman Nagar,Kothrud,15.6,351.0,Completed,UPI
+2198,12,118,2024-12-21 02:35:00,MG Road,Indiranagar,9.9,208.0,Completed,Card
+2063,9,113,2024-12-21 09:02:00,Colaba,BKC,21.2,306.0,Completed,Card
+2391,24,116,2024-12-21 14:15:00,Saket,Karol Bagh,8.0,128.0,Completed,UPI
+2309,29,101,2024-12-21 20:34:00,Worli,Colaba,7.5,142.0,Completed,UPI
+2071,6,109,2024-12-22 00:50:00,Gurgaon,Noida,27.7,618.0,Completed,Cash
+2090,23,107,2024-12-22 08:16:00,Bandra,Worli,17.9,500.0,Completed,UPI
+2437,8,101,2024-12-22 12:21:00,Viman Nagar,Hinjewadi,5.1,100.0,Completed,UPI
+2110,35,118,2024-12-22 13:44:00,Indiranagar,MG Road,23.2,497.0,Completed,UPI
+2098,34,102,2024-12-22 18:23:00,OMR,Anna Nagar,26.8,732.0,Completed,UPI
+2028,23,101,2024-12-23 00:48:00,Andheri,Bandra,7.6,122.0,Completed,UPI
+2202,28,104,2024-12-23 08:28:00,Kothrud,Baner,24.5,447.0,Completed,UPI
+2053,25,105,2024-12-23 09:14:00,Velachery,T Nagar,10.6,198.0,Completed,UPI
+2377,25,102,2024-12-23 09:15:00,T Nagar,Anna Nagar,14.3,401.0,Completed,Cash
+2166,30,115,2024-12-23 10:56:00,Velachery,Adyar,5.0,124.0,Completed,Cash
+2245,28,116,2024-12-23 14:44:00,Baner,Kothrud,8.2,126.0,Cancelled,UPI
+2261,17,116,2024-12-23 18:11:00,Gurgaon,Dwarka,6.2,120.0,Completed,UPI
+2296,8,116,2024-12-23 18:35:00,Baner,Hinjewadi,23.6,451.0,Completed,Card
+2328,35,118,2024-12-23 18:57:00,Electronic City,Koramangala,5.9,162.0,Cancelled,UPI
+2126,37,108,2024-12-23 20:40:00,Banjara Hills,Gachibowli,25.2,556.0,Completed,UPI
+2034,17,112,2024-12-23 21:00:00,Saket,Noida,4.7,77.0,Completed,Card
+2498,35,114,2024-12-23 22:55:00,MG Road,Electronic City,10.7,247.0,Completed,UPI
+2396,8,108,2024-12-23 23:49:00,Viman Nagar,Hinjewadi,10.3,213.0,Completed,UPI
+2336,37,104,2024-12-24 03:28:00,Jubilee Hills,Gachibowli,6.8,112.0,Completed,Card
+2043,17,117,2024-12-24 08:34:00,Noida,Karol Bagh,25.7,492.0,Cancelled,UPI
+2272,39,110,2024-12-24 08:41:00,Jubilee Hills,Gachibowli,9.1,134.0,Completed,UPI
+2089,34,102,2024-12-24 09:49:00,Anna Nagar,T Nagar,15.5,415.0,Completed,Cash
+2073,12,114,2024-12-24 09:50:00,MG Road,Koramangala,2.9,73.0,Completed,UPI
+2189,7,101,2024-12-24 10:02:00,Colaba,Powai,27.2,485.0,Completed,UPI
+2158,8,102,2024-12-24 12:15:00,Shivajinagar,Hinjewadi,5.1,98.0,Completed,Card
+2228,22,101,2024-12-24 13:06:00,Bandra,Colaba,27.6,494.0,Completed,Cash
+2138,33,115,2024-12-24 14:08:00,Adyar,Anna Nagar,16.8,385.0,Completed,UPI
+2425,37,111,2024-12-24 18:05:00,Hitech City,Gachibowli,11.9,264.0,Cancelled,UPI
+2170,3,104,2024-12-25 08:53:00,Gachibowli,Banjara Hills,20.5,370.0,Completed,UPI
+2004,17,109,2024-12-25 09:08:00,Karol Bagh,Gurgaon,14.2,403.0,Completed,UPI
+2006,20,114,2024-12-25 10:06:00,MG Road,Koramangala,5.4,107.0,Completed,UPI
+2287,37,110,2024-12-25 20:46:00,Banjara Hills,Gachibowli,18.9,226.0,Completed,UPI
+2171,40,113,2024-12-25 23:31:00,Andheri,Worli,16.1,191.0,Cancelled,Card
+2177,37,110,2024-12-26 10:08:00,Banjara Hills,Hitech City,21.5,253.0,Cancelled,UPI
+2363,23,107,2024-12-26 13:56:00,Andheri,Powai,18.1,397.0,Completed,Cash
+2001,1,105,2024-12-26 19:44:00,Adyar,Velachery,6.4,114.0,Completed,Card
+2350,33,105,2024-12-26 19:56:00,Adyar,OMR,20.2,393.0,Completed,Card
+2268,15,108,2024-12-26 20:01:00,Hinjewadi,Viman Nagar,25.7,570.0,Completed,UPI
+2477,34,105,2024-12-26 20:37:00,Anna Nagar,T Nagar,3.4,50,Completed,UPI
+2329,1,115,2024-12-26 23:10:00,Adyar,Anna Nagar,13.9,296.0,Completed,Card
+2378,31,118,2024-12-27 02:40:00,Whitefield,Electronic City,9.0,202.0,Completed,Cash
+2156,25,102,2024-12-27 02:41:00,OMR,T Nagar,7.1,157.0,Completed,Card
+2010,23,101,2024-12-27 10:56:00,Powai,Colaba,21.6,402.0,Completed,UPI
+2456,31,114,2024-12-27 13:39:00,Whitefield,Koramangala,16.1,340.0,Completed,Cash
+2015,34,115,2024-12-27 14:12:00,OMR,Velachery,4.3,100.0,Completed,UPI
+2351,22,107,2024-12-27 18:30:00,Andheri,BKC,4.2,120.0,Completed,Card
+2354,14,102,2024-12-27 18:49:00,T Nagar,Adyar,26.0,720.0,Completed,Card
+2317,28,103,2024-12-27 19:02:00,Hinjewadi,Baner,3.9,97.0,Completed,Card
+2373,40,113,2024-12-27 20:51:00,BKC,Powai,7.3,75.0,Cancelled,UPI
+2070,24,103,2024-12-27 23:22:00,Connaught Place,Dwarka,9.5,185.0,Completed,Cash
+2371,31,114,2024-12-28 07:19:00,Whitefield,Indiranagar,22.8,505.0,Completed,Card
+2241,15,113,2024-12-28 08:37:00,Kothrud,Baner,25.8,373.0,Completed,Cash
+2361,26,103,2024-12-28 09:30:00,Karol Bagh,Connaught Place,14.0,310.0,Completed,Card
+2288,4,101,2024-12-28 10:20:00,Powai,Andheri,4.9,96.0,Cancelled,Cash
+2322,23,101,2024-12-28 18:11:00,Bandra,Colaba,23.8,526.0,Completed,Card
+2410,9,107,2024-12-28 18:27:00,Bandra,Colaba,25.9,707.0,Completed,Cash
+2327,17,103,2024-12-28 18:52:00,Saket,Karol Bagh,12.8,291.0,Completed,Card
+2136,38,112,2024-12-28 19:41:00,Saket,Karol Bagh,8.3,142.0,Completed,Card
+2473,1,105,2024-12-28 20:34:00,OMR,Adyar,19.9,296.0,Completed,Cash
+2081,18,115,2024-12-28 20:39:00,Adyar,T Nagar,18.0,401.0,Completed,UPI
+2220,5,108,2024-12-29 03:03:00,Gachibowli,Banjara Hills,26.1,563.0,Completed,UPI
+2376,24,116,2024-12-29 08:03:00,Gurgaon,Dwarka,4.3,80.0,Completed,Cash
+2111,19,106,2024-12-29 09:32:00,Jubilee Hills,Hitech City,14.6,388.0,Completed,UPI
+2404,19,106,2024-12-29 10:00:00,Banjara Hills,Gachibowli,19.3,429.0,Completed,UPI
+2142,18,115,2024-12-29 10:37:00,Anna Nagar,Adyar,3.8,96.0,Completed,UPI
+2460,12,118,2024-12-29 10:55:00,Whitefield,Koramangala,27.6,621.0,Completed,Cash
+2453,27,105,2024-12-29 18:29:00,Adyar,Velachery,16.6,310.0,Completed,UPI
+2211,26,112,2024-12-29 18:45:00,Connaught Place,Karol Bagh,7.9,135.0,Completed,Card
+2284,17,116,2024-12-29 20:00:00,Gurgaon,Dwarka,19.4,296.0,Completed,Card
+2319,38,103,2024-12-29 20:06:00,Gurgaon,Karol Bagh,18.0,317.0,Completed,UPI
+2252,13,105,2024-12-29 21:16:00,OMR,Adyar,8.6,115.0,Completed,Cash
+2064,12,114,2024-12-29 21:32:00,Koramangala,MG Road,9.1,210.0,Completed,Cash
+2495,24,116,2024-12-30 01:24:00,Karol Bagh,Gurgaon,16.0,234.0,Completed,Card
+2450,4,101,2024-12-30 01:55:00,BKC,Andheri,8.5,159.0,Completed,UPI
+2467,39,104,2024-12-30 10:08:00,Jubilee Hills,Hitech City,22.0,334.0,Completed,UPI
+2286,13,105,2024-12-30 10:31:00,Anna Nagar,Velachery,10.9,149.0,Completed,Cash
+2434,8,110,2024-12-30 13:26:00,Hinjewadi,Viman Nagar,24.9,295.0,Completed,UPI
+2140,20,118,2024-12-30 13:30:00,Koramangala,Electronic City,9.8,218.0,Completed,Cash
+2120,11,113,2024-12-30 19:32:00,Bandra,Andheri,27.6,423.0,Completed,UPI
+2494,20,114,2024-12-30 20:01:00,Indiranagar,Electronic City,22.2,500.0,Completed,Card
+2375,18,102,2024-12-31 08:09:00,T Nagar,Velachery,8.0,218.0,Completed,UPI
+2449,20,118,2024-12-31 08:37:00,Whitefield,Indiranagar,24.1,673.0,Cancelled,Cash
+2153,8,107,2024-12-31 10:28:00,Hinjewadi,Viman Nagar,5.9,127.0,Completed,Card
+2421,10,106,2024-12-31 10:49:00,Viman Nagar,Kothrud,18.5,396.0,Completed,UPI
+2007,39,106,2024-12-31 19:32:00,Jubilee Hills,Gachibowli,25.6,714.0,Cancelled,UPI
+2299,32,106,2024-12-31 19:39:00,Gachibowli,Banjara Hills,5.6,165.0,Completed,Cash
+2056,21,115,2024-12-31 20:02:00,Adyar,T Nagar,8.5,193.0,Completed,UPI
+2289,11,107,2024-12-31 20:05:00,BKC,Worli,7.2,155.0,Completed,UPI
