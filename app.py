@@ -4,7 +4,6 @@ import pandas as pd
 import requests
 import streamlit as st
 
-
 # ============================================================
 # PAGE CONFIG
 # ============================================================
@@ -16,7 +15,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
 # ============================================================
 # CUSTOM UI
 # ============================================================
@@ -25,7 +23,7 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #f5f7fb;
+    background: #f5f7fb;
 }
 
 .block-container {
@@ -55,7 +53,6 @@ h1, h2, h3 {
 .hero-text {
     color: #dbe5f5;
     font-size: 16px;
-    line-height: 1.6;
 }
 
 div[data-testid="stMetric"] {
@@ -92,9 +89,8 @@ div[data-testid="stDataEditor"] {
 </style>
 """, unsafe_allow_html=True)
 
-
 # ============================================================
-# GROQ AI
+# GROQ
 # ============================================================
 
 GROQ_MODEL = "openai/gpt-oss-120b"
@@ -102,10 +98,7 @@ GROQ_MODEL = "openai/gpt-oss-120b"
 
 def call_groq(messages, temperature=0.3):
 
-    try:
-        api_key = st.secrets.get("GROQ_API_KEY")
-    except Exception:
-        api_key = None
+    api_key = st.secrets.get("GROQ_API_KEY")
 
     if not api_key:
         return None, (
@@ -117,15 +110,18 @@ def call_groq(messages, temperature=0.3):
 
         response = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",
+
             headers={
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json"
             },
+
             json={
                 "model": GROQ_MODEL,
                 "messages": messages,
                 "temperature": temperature
             },
+
             timeout=30
         )
 
@@ -172,13 +168,19 @@ def load_default(csv_name, fallback_rows, columns):
     )
 
 
+# ============================================================
+# RIDERS
+# ============================================================
+
 DEFAULT_RIDERS = load_default(
     "riders_data.csv",
+
     [
         [1, "Rahul", "Mumbai", "2024-01-10"],
         [2, "Priya", "Delhi", "2024-02-15"],
         [3, "Amit", "Hyderabad", "2024-03-01"]
     ],
+
     [
         "rider_id",
         "rider_name",
@@ -188,13 +190,19 @@ DEFAULT_RIDERS = load_default(
 )
 
 
+# ============================================================
+# DRIVERS
+# ============================================================
+
 DEFAULT_DRIVERS = load_default(
     "drivers_data.csv",
+
     [
         [101, "Arjun", "Sedan", "Mumbai", "2023-05-10"],
         [102, "Priya", "SUV", "Delhi", "2023-06-15"],
         [103, "Ravi", "Bike", "Hyderabad", "2023-07-20"]
     ],
+
     [
         "driver_id",
         "driver_name",
@@ -205,8 +213,13 @@ DEFAULT_DRIVERS = load_default(
 )
 
 
+# ============================================================
+# TRIPS
+# ============================================================
+
 DEFAULT_TRIPS = load_default(
     "trips_data.csv",
+
     [
         [
             1001,
@@ -220,6 +233,7 @@ DEFAULT_TRIPS = load_default(
             "Completed",
             "UPI"
         ],
+
         [
             1002,
             2,
@@ -232,6 +246,7 @@ DEFAULT_TRIPS = load_default(
             "Completed",
             "Card"
         ],
+
         [
             1003,
             3,
@@ -245,6 +260,7 @@ DEFAULT_TRIPS = load_default(
             "UPI"
         ]
     ],
+
     [
         "trip_id",
         "rider_id",
@@ -265,15 +281,22 @@ DEFAULT_TRIPS = load_default(
 # ============================================================
 
 if "riders_df" not in st.session_state:
+
     st.session_state.riders_df = DEFAULT_RIDERS.copy()
 
+
 if "drivers_df" not in st.session_state:
+
     st.session_state.drivers_df = DEFAULT_DRIVERS.copy()
 
+
 if "trips_df" not in st.session_state:
+
     st.session_state.trips_df = DEFAULT_TRIPS.copy()
 
+
 if "chat_history" not in st.session_state:
+
     st.session_state.chat_history = []
 
 
@@ -281,7 +304,11 @@ if "chat_history" not in st.session_state:
 # DATABASE
 # ============================================================
 
-def build_connection(riders_df, drivers_df, trips_df):
+def build_connection(
+    riders_df,
+    drivers_df,
+    trips_df
+):
 
     conn = sqlite3.connect(
         ":memory:",
@@ -312,7 +339,11 @@ def build_connection(riders_df, drivers_df, trips_df):
     return conn
 
 
-def query(conn, sql, params=None):
+def query(
+    conn,
+    sql,
+    params=None
+):
 
     return pd.read_sql_query(
         sql,
@@ -335,6 +366,7 @@ st.markdown("""
     <div class="hero-text">
         Explore trips, revenue, drivers, riders and routes
         through an interactive analytics dashboard.
+        <br>
         Edit your data and watch every insight update live.
     </div>
 
@@ -387,7 +419,7 @@ with tab_edit:
     st.header("✏️ Edit Your Data")
 
     st.caption(
-        "Edit any cell directly. Dashboard KPIs and charts update automatically."
+        "Edit cells directly. Your dashboard updates automatically."
     )
 
     # --------------------------------------------------------
@@ -397,27 +429,41 @@ with tab_edit:
     st.subheader("🧍 Riders")
 
     edited_riders = st.data_editor(
+
         st.session_state.riders_df,
+
         num_rows="dynamic",
+
         use_container_width=True,
+
         key="riders_editor",
+
         column_config={
-            "rider_id": st.column_config.NumberColumn(
-                "Rider ID",
-                required=True
-            ),
-            "rider_name": st.column_config.TextColumn(
-                "Name",
-                required=True
-            ),
-            "city": st.column_config.TextColumn(
-                "City"
-            ),
-            "signup_date": st.column_config.TextColumn(
-                "Signup Date"
-            )
+
+            "rider_id":
+                st.column_config.NumberColumn(
+                    "Rider ID",
+                    required=True
+                ),
+
+            "rider_name":
+                st.column_config.TextColumn(
+                    "Name",
+                    required=True
+                ),
+
+            "city":
+                st.column_config.TextColumn(
+                    "City"
+                ),
+
+            "signup_date":
+                st.column_config.TextColumn(
+                    "Signup Date"
+                )
         }
     )
+
 
     # --------------------------------------------------------
     # DRIVERS
@@ -426,38 +472,57 @@ with tab_edit:
     st.subheader("🚗 Drivers")
 
     edited_drivers = st.data_editor(
+
         st.session_state.drivers_df,
+
         num_rows="dynamic",
+
         use_container_width=True,
+
         key="drivers_editor",
+
         column_config={
-            "driver_id": st.column_config.NumberColumn(
-                "Driver ID",
-                required=True
-            ),
-            "driver_name": st.column_config.TextColumn(
-                "Name",
-                required=True
-            ),
-            "vehicle_type": st.column_config.SelectboxColumn(
-                "Vehicle Type",
-                options=[
-                    "Sedan",
-                    "SUV",
-                    "Bike",
-                    "Auto",
-                    "Mini"
-                ],
-                required=True
-            ),
-            "city": st.column_config.TextColumn(
-                "City"
-            ),
-            "joining_date": st.column_config.TextColumn(
-                "Joining Date"
-            )
+
+            "driver_id":
+                st.column_config.NumberColumn(
+                    "Driver ID",
+                    required=True
+                ),
+
+            "driver_name":
+                st.column_config.TextColumn(
+                    "Name",
+                    required=True
+                ),
+
+            "vehicle_type":
+                st.column_config.SelectboxColumn(
+
+                    "Vehicle Type",
+
+                    options=[
+                        "Sedan",
+                        "SUV",
+                        "Bike",
+                        "Auto",
+                        "Mini"
+                    ],
+
+                    required=True
+                ),
+
+            "city":
+                st.column_config.TextColumn(
+                    "City"
+                ),
+
+            "joining_date":
+                st.column_config.TextColumn(
+                    "Joining Date"
+                )
         }
     )
+
 
     # --------------------------------------------------------
     # TRIPS
@@ -465,93 +530,158 @@ with tab_edit:
 
     st.subheader("🚖 Trips")
 
-    st.caption(
-        "Make sure rider_id and driver_id exist in the corresponding tables."
-    )
-
     edited_trips = st.data_editor(
+
         st.session_state.trips_df,
+
         num_rows="dynamic",
+
         use_container_width=True,
+
         key="trips_editor",
+
         column_config={
-            "trip_id": st.column_config.NumberColumn(
-                "Trip ID",
-                required=True
-            ),
-            "rider_id": st.column_config.NumberColumn(
-                "Rider ID",
-                required=True
-            ),
-            "driver_id": st.column_config.NumberColumn(
-                "Driver ID",
-                required=True
-            ),
-            "trip_date": st.column_config.TextColumn(
-                "Trip Date / Time"
-            ),
-            "pickup_location": st.column_config.TextColumn(
-                "Pickup"
-            ),
-            "drop_location": st.column_config.TextColumn(
-                "Drop"
-            ),
-            "distance_km": st.column_config.NumberColumn(
-                "Distance (km)",
-                format="%.1f"
-            ),
-            "fare": st.column_config.NumberColumn(
-                "Fare (₹)",
-                format="%.0f"
-            ),
-            "trip_status": st.column_config.SelectboxColumn(
-                "Status",
-                options=[
-                    "Completed",
-                    "Cancelled"
-                ],
-                required=True
-            ),
-            "payment_method": st.column_config.SelectboxColumn(
-                "Payment",
-                options=[
-                    "UPI",
-                    "Card",
-                    "Cash"
-                ],
-                required=True
-            )
+
+            "trip_id":
+                st.column_config.NumberColumn(
+                    "Trip ID",
+                    required=True
+                ),
+
+            "rider_id":
+                st.column_config.NumberColumn(
+                    "Rider ID",
+                    required=True
+                ),
+
+            "driver_id":
+                st.column_config.NumberColumn(
+                    "Driver ID",
+                    required=True
+                ),
+
+            "trip_date":
+                st.column_config.TextColumn(
+                    "Trip Date / Time"
+                ),
+
+            "pickup_location":
+                st.column_config.TextColumn(
+                    "Pickup"
+                ),
+
+            "drop_location":
+                st.column_config.TextColumn(
+                    "Drop"
+                ),
+
+            "distance_km":
+                st.column_config.NumberColumn(
+                    "Distance (km)",
+                    format="%.1f"
+                ),
+
+            "fare":
+                st.column_config.NumberColumn(
+                    "Fare (₹)",
+                    format="%.0f"
+                ),
+
+            "trip_status":
+                st.column_config.SelectboxColumn(
+
+                    "Status",
+
+                    options=[
+                        "Completed",
+                        "Cancelled"
+                    ],
+
+                    required=True
+                ),
+
+            "payment_method":
+                st.column_config.SelectboxColumn(
+
+                    "Payment",
+
+                    options=[
+                        "UPI",
+                        "Card",
+                        "Cash"
+                    ],
+
+                    required=True
+                )
         }
     )
 
-    # IMPORTANT:
-    # Save the edited values immediately.
+
+    # ========================================================
+    # SAVE EDITED DATA INTO SESSION
+    # ========================================================
 
     st.session_state.riders_df = edited_riders.copy()
+
     st.session_state.drivers_df = edited_drivers.copy()
+
     st.session_state.trips_df = edited_trips.copy()
 
-    st.divider()
+
+    st.success(
+        "✅ Changes are automatically used by the dashboard."
+    )
+
+
+    # ========================================================
+    # RESET
+    # ========================================================
 
     if st.button(
         "↩️ Reset Everything to Sample Data",
         use_container_width=True
     ):
 
-        st.session_state.riders_df = DEFAULT_RIDERS.copy()
-        st.session_state.drivers_df = DEFAULT_DRIVERS.copy()
-        st.session_state.trips_df = DEFAULT_TRIPS.copy()
+        st.session_state.riders_df = (
+            DEFAULT_RIDERS.copy()
+        )
+
+        st.session_state.drivers_df = (
+            DEFAULT_DRIVERS.copy()
+        )
+
+        st.session_state.trips_df = (
+            DEFAULT_TRIPS.copy()
+        )
+
+
+        # Remove old editor state
+
+        for key in [
+            "riders_editor",
+            "drivers_editor",
+            "trips_editor"
+        ]:
+
+            st.session_state.pop(
+                key,
+                None
+            )
+
 
         st.rerun()
 
 
 # ============================================================
-# BUILD CURRENT DATABASE
+# CURRENT DATABASE
 # ============================================================
 
 conn = build_connection(
+
     st.session_state.riders_df,
+
     st.session_state.drivers_df,
+
     st.session_state.trips_df
 )
 
@@ -561,83 +691,147 @@ conn = build_connection(
 # ============================================================
 
 summary = query(
+
     conn,
+
     """
     SELECT
 
         COUNT(*) AS total_trips,
 
-        SUM(
-            CASE
-                WHEN trip_status = 'Completed'
-                THEN 1
-                ELSE 0
-            END
+        COALESCE(
+            SUM(
+                CASE
+                    WHEN trip_status = 'Completed'
+                    THEN 1
+                    ELSE 0
+                END
+            ),
+            0
         ) AS completed_trips,
 
-        SUM(
-            CASE
-                WHEN trip_status = 'Cancelled'
-                THEN 1
-                ELSE 0
-            END
+        COALESCE(
+            SUM(
+                CASE
+                    WHEN trip_status = 'Cancelled'
+                    THEN 1
+                    ELSE 0
+                END
+            ),
+            0
         ) AS cancelled_trips,
 
-        SUM(
-            CASE
-                WHEN trip_status = 'Completed'
-                THEN COALESCE(fare, 0)
-                ELSE 0
-            END
+        COALESCE(
+            SUM(
+                CASE
+                    WHEN trip_status = 'Completed'
+                    THEN fare
+                    ELSE 0
+                END
+            ),
+            0
         ) AS total_revenue,
 
-        SUM(
-            CASE
-                WHEN trip_status = 'Completed'
-                THEN COALESCE(distance_km, 0)
-                ELSE 0
-            END
-        ) AS total_distance
+        COALESCE(
+            AVG(
+                CASE
+                    WHEN trip_status = 'Completed'
+                    THEN fare
+                END
+            ),
+            0
+        ) AS avg_fare,
+
+        COALESCE(
+            AVG(
+                CASE
+                    WHEN trip_status = 'Completed'
+                    THEN distance_km
+                END
+            ),
+            0
+        ) AS avg_distance
 
     FROM trips
     """
+
 ).iloc[0]
 
 
 total_trips = int(
-    summary["total_trips"] or 0
+    summary["total_trips"]
 )
 
 completed = int(
-    summary["completed_trips"] or 0
+    summary["completed_trips"]
 )
 
 cancelled = int(
-    summary["cancelled_trips"] or 0
+    summary["cancelled_trips"]
 )
 
 total_revenue = float(
-    summary["total_revenue"] or 0
+    summary["total_revenue"]
 )
 
-total_distance = float(
-    summary["total_distance"] or 0
+avg_distance = float(
+    summary["avg_distance"]
 )
 
 
-# Correct average fare per km:
-# Total completed revenue / total completed distance
+# ============================================================
+# CANCELLATION RATE
+# ============================================================
 
-fare_per_km = (
-    total_revenue / total_distance
-    if total_distance > 0
+cancel_rate = (
+
+    cancelled /
+    total_trips *
+    100
+
+    if total_trips
+
     else 0
 )
 
 
-cancel_rate = (
-    cancelled / total_trips * 100
-    if total_trips > 0
+# ============================================================
+# COMPLETED DISTANCE
+# ============================================================
+
+completed_distance = float(
+
+    query(
+
+        conn,
+
+        """
+        SELECT
+            COALESCE(
+                SUM(distance_km),
+                0
+            ) AS distance
+
+        FROM trips
+
+        WHERE trip_status = 'Completed'
+        """
+
+    ).iloc[0]["distance"]
+)
+
+
+# ============================================================
+# FARE PER KM
+# ============================================================
+
+fare_per_km = (
+
+    total_revenue /
+    completed_distance
+
+    if completed_distance > 0
+
     else 0
 )
 
@@ -651,99 +845,131 @@ with tab_overview:
     st.header("📊 Business Overview")
 
     st.caption(
-        "Live analytics calculated from your current edited dataset."
+        "Live analytics calculated from your current dataset."
     )
 
-    # --------------------------------------------------------
+
+    # ========================================================
     # KPI CARDS
-    # --------------------------------------------------------
+    # ========================================================
 
     c1, c2, c3, c4, c5 = st.columns(5)
+
 
     c1.metric(
         "Total Trips",
         f"{total_trips:,}"
     )
 
+
     c2.metric(
         "Completed",
         f"{completed:,}"
     )
+
 
     c3.metric(
         "Cancellation Rate",
         f"{cancel_rate:.1f}%"
     )
 
+
     c4.metric(
         "Total Revenue",
         f"₹{total_revenue:,.0f}"
     )
+
 
     c5.metric(
         "Avg Fare / km",
         f"₹{fare_per_km:.2f}"
     )
 
+
     st.divider()
 
-    # --------------------------------------------------------
-    # OVERVIEW CHARTS
-    # --------------------------------------------------------
+
+    # ========================================================
+    # CHARTS
+    # ========================================================
 
     col1, col2 = st.columns(2)
 
+
+    # --------------------------------------------------------
+    # TRIP STATUS
+    # --------------------------------------------------------
+
     with col1:
 
-        st.subheader("🚦 Trip Status")
+        st.subheader(
+            "🚦 Trip Status"
+        )
+
 
         status = query(
+
             conn,
+
             """
             SELECT
                 trip_status,
                 COUNT(*) AS trips
+
             FROM trips
+
             GROUP BY trip_status
+
             ORDER BY trips DESC
             """
         )
+
 
         if not status.empty:
 
             st.bar_chart(
-                status.set_index("trip_status")
+                status.set_index(
+                    "trip_status"
+                )
             )
 
-        else:
 
-            st.info("No trip data available.")
+    # --------------------------------------------------------
+    # PAYMENT
+    # --------------------------------------------------------
 
     with col2:
 
-        st.subheader("💳 Payment Methods")
+        st.subheader(
+            "💳 Payment Methods"
+        )
+
 
         payment = query(
+
             conn,
+
             """
             SELECT
                 payment_method,
                 COUNT(*) AS trips
+
             FROM trips
+
             GROUP BY payment_method
+
             ORDER BY trips DESC
             """
         )
 
+
         if not payment.empty:
 
             st.bar_chart(
-                payment.set_index("payment_method")
+                payment.set_index(
+                    "payment_method"
+                )
             )
-
-        else:
-
-            st.info("No payment data available.")
 
 
 # ============================================================
@@ -752,86 +978,135 @@ with tab_overview:
 
 with tab_revenue:
 
-    st.header("💰 Revenue Analytics")
+    st.header(
+        "💰 Revenue Analytics"
+    )
+
 
     col1, col2 = st.columns(2)
 
+
+    # --------------------------------------------------------
+    # REVENUE BY CITY
+    # --------------------------------------------------------
+
     with col1:
 
-        st.subheader("Revenue by City")
+        st.subheader(
+            "Revenue by City"
+        )
+
 
         data = query(
+
             conn,
+
             """
             SELECT
                 d.city,
                 SUM(t.fare) AS revenue
+
             FROM trips t
+
             JOIN drivers d
                 ON t.driver_id = d.driver_id
+
             WHERE t.trip_status = 'Completed'
+
             GROUP BY d.city
+
             ORDER BY revenue DESC
             """
         )
 
+
         if not data.empty:
 
             st.bar_chart(
-                data.set_index("city")
+                data.set_index(
+                    "city"
+                )
             )
 
         else:
 
-            st.info("No completed trips.")
+            st.info(
+                "No completed trips."
+            )
+
+
+    # --------------------------------------------------------
+    # REVENUE BY VEHICLE
+    # --------------------------------------------------------
 
     with col2:
 
-        st.subheader("Revenue by Vehicle")
+        st.subheader(
+            "Revenue by Vehicle"
+        )
+
 
         data = query(
+
             conn,
+
             """
             SELECT
                 d.vehicle_type,
                 SUM(t.fare) AS revenue
+
             FROM trips t
+
             JOIN drivers d
                 ON t.driver_id = d.driver_id
+
             WHERE t.trip_status = 'Completed'
+
             GROUP BY d.vehicle_type
+
             ORDER BY revenue DESC
             """
         )
 
+
         if not data.empty:
 
             st.bar_chart(
-                data.set_index("vehicle_type")
+                data.set_index(
+                    "vehicle_type"
+                )
             )
 
-        else:
 
-            st.info("No completed trips.")
+    st.subheader(
+        "Payment Method Distribution"
+    )
 
-    st.subheader("Payment Method Distribution")
 
     payment = query(
+
         conn,
+
         """
         SELECT
             payment_method,
             COUNT(*) AS trips
+
         FROM trips
+
         GROUP BY payment_method
+
         ORDER BY trips DESC
         """
     )
 
+
     if not payment.empty:
 
         st.bar_chart(
-            payment.set_index("payment_method")
+            payment.set_index(
+                "payment_method"
+            )
         )
 
 
@@ -841,17 +1116,26 @@ with tab_revenue:
 
 with tab_drivers:
 
-    st.header("🚗 Driver Analytics")
+    st.header(
+        "🚗 Driver Analytics"
+    )
+
 
     driver_stats = query(
+
         conn,
+
         """
         SELECT
+
             d.driver_name,
+
             d.city,
+
             d.vehicle_type,
 
-            COUNT(t.trip_id) AS total_trips,
+            COUNT(t.trip_id)
+                AS total_trips,
 
             SUM(
                 CASE
@@ -861,15 +1145,12 @@ with tab_drivers:
                 END
             ) AS completed_trips,
 
-            COALESCE(
-                SUM(
-                    CASE
-                        WHEN t.trip_status = 'Completed'
-                        THEN t.fare
-                        ELSE 0
-                    END
-                ),
-                0
+            SUM(
+                CASE
+                    WHEN t.trip_status = 'Completed'
+                    THEN t.fare
+                    ELSE 0
+                END
             ) AS earnings
 
         FROM drivers d
@@ -878,7 +1159,6 @@ with tab_drivers:
             ON t.driver_id = d.driver_id
 
         GROUP BY
-            d.driver_id,
             d.driver_name,
             d.city,
             d.vehicle_type
@@ -887,67 +1167,46 @@ with tab_drivers:
         """
     )
 
-    st.subheader("Driver Performance")
+
+    st.subheader(
+        "Driver Performance"
+    )
+
 
     st.dataframe(
+
         driver_stats,
+
         use_container_width=True,
+
         hide_index=True
     )
 
+
     if not driver_stats.empty:
 
-        st.subheader("💰 Driver Earnings")
-
-        chart_data = (
-            driver_stats[
-                ["driver_name", "earnings"]
-            ]
-            .set_index("driver_name")
+        st.subheader(
+            "💰 Driver Earnings"
         )
 
-        st.bar_chart(chart_data)
 
-    st.subheader("📊 Driver Utilization")
+        chart_data = (
 
-    utilization = query(
-        conn,
-        """
-        SELECT
-            d.driver_name,
+            driver_stats[
+                [
+                    "driver_name",
+                    "earnings"
+                ]
+            ]
 
-            COUNT(
-                CASE
-                    WHEN t.trip_status = 'Completed'
-                    THEN 1
-                END
-            ) AS completed_trips,
+            .set_index(
+                "driver_name"
+            )
+        )
 
-            COUNT(t.trip_id) AS total_trips
 
-        FROM drivers d
-
-        LEFT JOIN trips t
-            ON d.driver_id = t.driver_id
-
-        GROUP BY
-            d.driver_id,
-            d.driver_name
-        """
-    )
-
-    if not utilization.empty:
-
-        utilization["utilization_pct"] = (
-            utilization["completed_trips"]
-            / utilization["total_trips"].replace(0, pd.NA)
-            * 100
-        ).fillna(0).round(1)
-
-        st.dataframe(
-            utilization,
-            use_container_width=True,
-            hide_index=True
+        st.bar_chart(
+            chart_data
         )
 
 
@@ -957,26 +1216,31 @@ with tab_drivers:
 
 with tab_riders:
 
-    st.header("🧍 Rider Analytics")
+    st.header(
+        "🧍 Rider Analytics"
+    )
+
 
     rider_stats = query(
+
         conn,
+
         """
         SELECT
+
             r.rider_name,
+
             r.city,
 
-            COUNT(t.trip_id) AS total_trips,
+            COUNT(t.trip_id)
+                AS total_trips,
 
-            COALESCE(
-                SUM(
-                    CASE
-                        WHEN t.trip_status = 'Completed'
-                        THEN t.fare
-                        ELSE 0
-                    END
-                ),
-                0
+            SUM(
+                CASE
+                    WHEN t.trip_status = 'Completed'
+                    THEN t.fare
+                    ELSE 0
+                END
             ) AS total_spend
 
         FROM riders r
@@ -985,7 +1249,6 @@ with tab_riders:
             ON t.rider_id = r.rider_id
 
         GROUP BY
-            r.rider_id,
             r.rider_name,
             r.city
 
@@ -995,21 +1258,32 @@ with tab_riders:
         """
     )
 
-    st.subheader("Most Active Riders")
 
     st.dataframe(
+
         rider_stats,
+
         use_container_width=True,
+
         hide_index=True
     )
 
+
+    # ========================================================
+    # RETENTION
+    # ========================================================
+
     retention_df = query(
+
         conn,
+
         """
-        WITH rider_counts AS (
+        WITH rc AS (
 
             SELECT
+
                 rider_id,
+
                 COUNT(*) AS completed_trips
 
             FROM trips
@@ -1022,37 +1296,60 @@ with tab_riders:
         SELECT
 
             CASE
+
                 WHEN COUNT(*) = 0
+
                 THEN 0
 
                 ELSE ROUND(
+
                     100.0 *
+
                     SUM(
+
                         CASE
+
                             WHEN completed_trips > 1
+
                             THEN 1
+
                             ELSE 0
+
                         END
-                    ) / COUNT(*),
+
+                    )
+
+                    / COUNT(*),
+
                     1
+
                 )
 
             END AS retention_pct
 
-        FROM rider_counts
+        FROM rc
         """
     )
 
+
     retention = (
+
         float(
-            retention_df.iloc[0]["retention_pct"]
+            retention_df.iloc[0][
+                "retention_pct"
+            ]
         )
+
         if not retention_df.empty
+
         else 0
     )
 
+
     st.metric(
+
         "🔁 Rider Retention Rate",
+
         f"{retention:.1f}%"
     )
 
@@ -1063,29 +1360,42 @@ with tab_riders:
 
 with tab_time:
 
-    st.header("⏰ Peak Time Analytics")
+    st.header(
+        "⏰ Peak Time Analytics"
+    )
+
 
     col1, col2 = st.columns(2)
 
+
+    # --------------------------------------------------------
+    # HOURS
+    # --------------------------------------------------------
+
     with col1:
 
-        st.subheader("Peak Booking Hour")
+        st.subheader(
+            "Peak Booking Hour"
+        )
+
 
         hours = query(
+
             conn,
+
             """
             SELECT
 
                 CAST(
-                    strftime('%H', trip_date)
-                    AS INTEGER
+                    strftime(
+                        '%H',
+                        trip_date
+                    ) AS INTEGER
                 ) AS hour,
 
                 COUNT(*) AS trips
 
             FROM trips
-
-            WHERE trip_date IS NOT NULL
 
             GROUP BY hour
 
@@ -1093,33 +1403,42 @@ with tab_time:
             """
         )
 
+
         if not hours.empty:
 
             st.bar_chart(
-                hours.set_index("hour")
+                hours.set_index(
+                    "hour"
+                )
             )
 
-        else:
 
-            st.info("No valid trip dates.")
-
+    # --------------------------------------------------------
+    # DAYS
+    # --------------------------------------------------------
 
     with col2:
 
-        st.subheader("Peak Booking Day")
+        st.subheader(
+            "Peak Booking Day"
+        )
+
 
         days = query(
+
             conn,
+
             """
             SELECT
 
-                strftime('%w', trip_date) AS dow,
+                strftime(
+                    '%w',
+                    trip_date
+                ) AS dow,
 
                 COUNT(*) AS trips
 
             FROM trips
-
-            WHERE trip_date IS NOT NULL
 
             GROUP BY dow
 
@@ -1127,27 +1446,38 @@ with tab_time:
             """
         )
 
+
         if not days.empty:
 
             names = {
+
                 "0": "Sun",
+
                 "1": "Mon",
+
                 "2": "Tue",
+
                 "3": "Wed",
+
                 "4": "Thu",
+
                 "5": "Fri",
+
                 "6": "Sat"
             }
 
-            days["day"] = days["dow"].map(names)
+
+            days["day"] = days[
+                "dow"
+            ].map(names)
+
 
             st.bar_chart(
-                days.set_index("day")["trips"]
+
+                days.set_index(
+                    "day"
+                )["trips"]
             )
-
-        else:
-
-            st.info("No valid trip dates.")
 
 
 # ============================================================
@@ -1156,14 +1486,20 @@ with tab_time:
 
 with tab_routes:
 
-    st.header("📍 Route Analytics")
+    st.header(
+        "📍 Route Analytics"
+    )
+
 
     routes = query(
+
         conn,
+
         """
         SELECT
 
             pickup_location,
+
             drop_location,
 
             COUNT(*) AS trips,
@@ -1182,32 +1518,45 @@ with tab_routes:
         """
     )
 
-    st.subheader("🏆 Highest Revenue Routes")
 
-    if not routes.empty:
+    st.subheader(
+        "🏆 Highest Revenue Routes"
+    )
 
-        st.dataframe(
-            routes,
-            use_container_width=True,
-            hide_index=True
-        )
 
-    else:
+    st.dataframe(
 
-        st.info("No completed routes available.")
+        routes,
+
+        use_container_width=True,
+
+        hide_index=True
+    )
 
 
     col1, col2 = st.columns(2)
 
+
+    # --------------------------------------------------------
+    # PICKUP
+    # --------------------------------------------------------
+
     with col1:
 
-        st.subheader("Top Pickup Locations")
+        st.subheader(
+            "Top Pickup Locations"
+        )
+
 
         pickup = query(
+
             conn,
+
             """
             SELECT
+
                 pickup_location,
+
                 COUNT(*) AS trips
 
             FROM trips
@@ -1218,22 +1567,37 @@ with tab_routes:
             """
         )
 
+
         if not pickup.empty:
 
             st.bar_chart(
-                pickup.set_index("pickup_location")
+
+                pickup.set_index(
+                    "pickup_location"
+                )
             )
 
 
+    # --------------------------------------------------------
+    # DROP
+    # --------------------------------------------------------
+
     with col2:
 
-        st.subheader("Top Drop Locations")
+        st.subheader(
+            "Top Drop Locations"
+        )
+
 
         drop = query(
+
             conn,
+
             """
             SELECT
+
                 drop_location,
+
                 COUNT(*) AS trips
 
             FROM trips
@@ -1244,10 +1608,14 @@ with tab_routes:
             """
         )
 
+
         if not drop.empty:
 
             st.bar_chart(
-                drop.set_index("drop_location")
+
+                drop.set_index(
+                    "drop_location"
+                )
             )
 
 
@@ -1257,10 +1625,15 @@ with tab_routes:
 
 with tab_trends:
 
-    st.header("📈 Business Trends")
+    st.header(
+        "📈 Business Trends"
+    )
+
 
     monthly = query(
+
         conn,
+
         """
         SELECT
 
@@ -1270,18 +1643,22 @@ with tab_trends:
             ) AS month,
 
             SUM(
+
                 CASE
+
                     WHEN trip_status = 'Completed'
+
                     THEN fare
+
                     ELSE 0
+
                 END
+
             ) AS revenue,
 
             COUNT(*) AS total_trips
 
         FROM trips
-
-        WHERE trip_date IS NOT NULL
 
         GROUP BY month
 
@@ -1289,50 +1666,78 @@ with tab_trends:
         """
     )
 
+
     if not monthly.empty:
 
         col1, col2 = st.columns(2)
 
+
         with col1:
 
-            st.subheader("💰 Monthly Revenue")
+            st.subheader(
+                "💰 Monthly Revenue"
+            )
+
 
             st.line_chart(
-                monthly.set_index("month")[
-                    ["revenue"]
-                ]
+
+                monthly.set_index(
+                    "month"
+                )[["revenue"]]
             )
+
 
         with col2:
 
-            st.subheader("🚖 Monthly Trips")
-
-            st.bar_chart(
-                monthly.set_index("month")[
-                    ["total_trips"]
-                ]
+            st.subheader(
+                "🚖 Monthly Trips"
             )
 
-        monthly["mom_growth_pct"] = (
-            monthly["revenue"]
+
+            st.bar_chart(
+
+                monthly.set_index(
+                    "month"
+                )[["total_trips"]]
+            )
+
+
+        monthly[
+            "mom_growth_pct"
+        ] = (
+
+            monthly[
+                "revenue"
+            ]
+
             .pct_change()
+
             .mul(100)
+
             .round(2)
         )
+
 
         st.subheader(
             "📊 Month-over-Month Revenue Growth"
         )
 
+
         st.dataframe(
+
             monthly,
+
             use_container_width=True,
+
             hide_index=True
         )
 
+
     else:
 
-        st.info("No trend data available.")
+        st.info(
+            "No trend data available."
+        )
 
 
 # ============================================================
@@ -1341,40 +1746,59 @@ with tab_trends:
 
 with tab_insights:
 
-    st.header("🔍 Business Insights")
+    st.header(
+        "🔍 Business Insights"
+    )
 
     st.caption(
-        "These insights are calculated from the current live dataset."
+        "These insights are calculated from live SQL queries."
     )
+
 
     insight_lines = []
 
-    # --------------------------------------------------------
+
+    # ========================================================
     # CANCELLATION
-    # --------------------------------------------------------
+    # ========================================================
 
     cancel_by_vehicle = query(
+
         conn,
+
         """
         SELECT
 
             d.vehicle_type,
 
             ROUND(
+
                 100.0 *
+
                 SUM(
+
                     CASE
+
                         WHEN t.trip_status = 'Cancelled'
+
                         THEN 1
+
                         ELSE 0
+
                     END
-                ) / COUNT(*),
+
+                )
+
+                / COUNT(*),
+
                 1
+
             ) AS cancel_rate_pct
 
         FROM trips t
 
         JOIN drivers d
+
             ON t.driver_id = d.driver_id
 
         GROUP BY d.vehicle_type
@@ -1383,34 +1807,49 @@ with tab_insights:
         """
     )
 
+
     if len(cancel_by_vehicle) >= 2:
 
         worst = cancel_by_vehicle.iloc[0]
+
         best = cancel_by_vehicle.iloc[-1]
 
+
         line = (
+
             f"{worst['vehicle_type']} has the highest "
+
             f"cancellation rate at "
+
             f"{worst['cancel_rate_pct']}%, while "
+
             f"{best['vehicle_type']} has "
+
             f"{best['cancel_rate_pct']}%."
         )
 
+
         insight_lines.append(
+
             "Cancellation: " + line
         )
 
+
         st.warning(
-            "🚨 **Cancellation Insight**\n\n" + line
+
+            "🚨 **Cancellation Insight**\n\n"
+            + line
         )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # REVENUE CONCENTRATION
-    # --------------------------------------------------------
+    # ========================================================
 
     rider_rev = query(
+
         conn,
+
         """
         SELECT
 
@@ -1428,52 +1867,86 @@ with tab_insights:
         """
     )
 
+
     if len(rider_rev) >= 5:
 
         top_n = max(
+
             1,
-            int(len(rider_rev) * 0.2)
+
+            int(
+                len(rider_rev) * 0.2
+            )
         )
 
-        total_spend = rider_rev["spend"].sum()
+
+        total_spend = rider_rev[
+            "spend"
+        ].sum()
+
 
         if total_spend > 0:
 
             pct = (
-                rider_rev.head(top_n)["spend"].sum()
-                / total_spend
+
+                rider_rev.head(
+                    top_n
+                )["spend"].sum()
+
+                /
+
+                total_spend
+
                 * 100
             )
 
+
             line = (
+
                 f"The top 20% of riders "
+
                 f"({top_n} of {len(rider_rev)}) "
-                f"generate {pct:.1f}% of completed-trip revenue."
+
+                f"generate {pct:.1f}% "
+
+                f"of completed-trip revenue."
             )
+
 
             insight_lines.append(
-                "Revenue concentration: " + line
+
+                "Revenue concentration: "
+                + line
             )
+
 
             st.info(
-                "💰 **Revenue Concentration**\n\n" + line
+
+                "💰 **Revenue Concentration**\n\n"
+                + line
             )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # RUSH HOUR
-    # --------------------------------------------------------
+    # ========================================================
 
     surge = query(
+
         conn,
+
         """
         SELECT
 
             CASE
 
                 WHEN CAST(
-                    strftime('%H', trip_date)
-                    AS INTEGER
+
+                    strftime(
+                        '%H',
+                        trip_date
+                    ) AS INTEGER
+
                 ) IN (8, 9, 18, 19)
 
                 THEN 'Rush Hour'
@@ -1483,10 +1956,15 @@ with tab_insights:
             END AS period,
 
             AVG(
+
                 CASE
+
                     WHEN distance_km > 0
+
                     THEN fare / distance_km
+
                 END
+
             ) AS fare_per_km
 
         FROM trips
@@ -1497,47 +1975,79 @@ with tab_insights:
         """
     )
 
+
     if len(surge) == 2:
 
         rush = surge[
             surge["period"] == "Rush Hour"
         ]["fare_per_km"]
 
+
         off = surge[
             surge["period"] == "Off-Peak"
         ]["fare_per_km"]
 
+
         if (
+
             not rush.empty
+
             and not off.empty
+
             and off.iloc[0] > 0
+
         ):
 
             premium = (
-                (rush.iloc[0] - off.iloc[0])
-                / off.iloc[0]
+
+                (
+
+                    rush.iloc[0]
+                    -
+                    off.iloc[0]
+
+                )
+
+                /
+
+                off.iloc[0]
+
                 * 100
             )
 
+
             line = (
+
                 f"Rush-hour trips have a "
+
                 f"{premium:.0f}% difference in "
-                f"average fare per km compared with off-peak trips."
+
+                f"average fare per km compared "
+
+                f"with off-peak trips."
             )
+
 
             insight_lines.append(
-                "Rush-hour pricing: " + line
+
+                "Rush-hour pricing: "
+                + line
             )
 
+
             st.success(
-                "⏰ **Rush-Hour Insight**\n\n" + line
+
+                "⏰ **Rush-Hour Insight**\n\n"
+                + line
             )
 
 
     if not insight_lines:
 
         st.info(
-            "Not enough data to generate detailed insights yet."
+
+            "Not enough data to generate "
+            "detailed insights yet."
         )
 
 
@@ -1547,46 +2057,68 @@ with tab_insights:
 
 with tab_chat:
 
-    st.header("💬 Ask the Data")
-
-    st.caption(
-        "Ask questions about the current dashboard using plain English."
+    st.header(
+        "💬 Ask the Data"
     )
 
+
+    st.caption(
+        "Ask questions about the current dashboard in plain English."
+    )
+
+
     current_context = f"""
+
 Current ride-sharing dashboard:
 
 Total trips: {total_trips}
+
 Completed trips: {completed}
+
 Cancelled trips: {cancelled}
+
 Cancellation rate: {cancel_rate:.1f}%
+
 Total revenue: ₹{total_revenue:,.0f}
+
 Average fare per km: ₹{fare_per_km:.2f}
 
+
 Insights:
+
 {chr(10).join(insight_lines)}
+
 """
 
+
     system_prompt = f"""
+
 You are a helpful business data analyst.
 
 Explain the dashboard in simple English.
 
 Only use the data provided below.
+
 Do not invent numbers.
 
-Keep answers concise, around 3-5 sentences unless
-the user asks for more detail.
+Keep answers concise, around 3-5 sentences
+unless the user asks for more detail.
 
 If the data cannot answer the question,
 clearly say that.
 
+
 DATA:
 
 {current_context}
+
 """
 
-    col1, col2 = st.columns([4, 1])
+
+    col1, col2 = st.columns(
+        [4, 1]
+    )
+
 
     with col2:
 
@@ -1596,17 +2128,23 @@ DATA:
         ):
 
             st.session_state.chat_history.append(
+
                 {
                     "role": "user",
-                    "content": (
+
+                    "content":
                         "Explain the most important things "
                         "I should know about this dashboard."
-                    )
                 }
+
             )
 
             st.rerun()
 
+
+    # ========================================================
+    # CHAT HISTORY
+    # ========================================================
 
     for message in st.session_state.chat_history:
 
@@ -1627,24 +2165,29 @@ DATA:
     if question:
 
         st.session_state.chat_history.append(
+
             {
                 "role": "user",
+
                 "content": question
             }
         )
 
+
         messages = [
+
             {
                 "role": "system",
+
                 "content": system_prompt
             }
+
         ] + st.session_state.chat_history
 
-        with st.chat_message("user"):
 
-            st.markdown(question)
-
-        with st.chat_message("assistant"):
+        with st.chat_message(
+            "assistant"
+        ):
 
             with st.spinner(
                 "🤖 Analyzing your data..."
@@ -1654,25 +2197,39 @@ DATA:
                     messages
                 )
 
+
                 if error:
 
-                    st.error(error)
+                    st.error(
+                        error
+                    )
+
 
                 else:
 
-                    st.markdown(answer)
+                    st.markdown(
+                        answer
+                    )
+
 
                     st.session_state.chat_history.append(
+
                         {
                             "role": "assistant",
+
                             "content": answer
                         }
                     )
 
 
+    # ========================================================
+    # CLEAR CHAT
+    # ========================================================
+
     if st.session_state.chat_history:
 
         st.divider()
+
 
         if st.button(
             "🗑️ Clear Chat"
@@ -1689,17 +2246,25 @@ DATA:
 
 with tab_raw:
 
-    st.header("🗄️ SQL Playground")
+    st.header(
+        "🗄️ SQL Playground"
+    )
+
 
     st.caption(
         "Run SELECT queries against the live in-memory database."
     )
 
+
     sql = st.text_area(
+
         "SQL Query",
+
         value="SELECT * FROM trips LIMIT 10;",
+
         height=130
     )
+
 
     if st.button(
         "▶️ Run Query",
@@ -1710,11 +2275,17 @@ with tab_raw:
 
             sql_clean = sql.strip().lower()
 
-            if not sql_clean.startswith("select"):
+
+            if not sql_clean.startswith(
+                "select"
+            ):
 
                 st.error(
-                    "For safety, only SELECT queries are allowed."
+
+                    "For safety, only SELECT "
+                    "queries are allowed."
                 )
+
 
             else:
 
@@ -1723,15 +2294,23 @@ with tab_raw:
                     sql
                 )
 
+
                 st.success(
-                    f"Query returned {len(result)} rows."
+
+                    f"Query returned "
+                    f"{len(result)} rows."
                 )
 
+
                 st.dataframe(
+
                     result,
+
                     use_container_width=True,
+
                     hide_index=True
                 )
+
 
         except Exception as e:
 
@@ -1742,40 +2321,59 @@ with tab_raw:
 
     st.divider()
 
-    st.subheader("📋 Current Tables")
 
-    with st.expander("🧍 Riders Table"):
+    st.subheader(
+        "📋 Current Tables"
+    )
+
+
+    with st.expander(
+        "🧍 Riders Table"
+    ):
 
         st.dataframe(
+
             query(
                 conn,
                 "SELECT * FROM riders"
             ),
+
             use_container_width=True,
+
             hide_index=True
         )
 
 
-    with st.expander("🚗 Drivers Table"):
+    with st.expander(
+        "🚗 Drivers Table"
+    ):
 
         st.dataframe(
+
             query(
                 conn,
                 "SELECT * FROM drivers"
             ),
+
             use_container_width=True,
+
             hide_index=True
         )
 
 
-    with st.expander("🚖 Trips Table"):
+    with st.expander(
+        "🚖 Trips Table"
+    ):
 
         st.dataframe(
+
             query(
                 conn,
                 "SELECT * FROM trips"
             ),
+
             use_container_width=True,
+
             hide_index=True
         )
 
@@ -1786,15 +2384,20 @@ with tab_raw:
 
 st.divider()
 
+
 st.markdown(
     """
     <div class="footer">
-        🚖 <b>RideFlow Analytics</b>
-        &nbsp;•&nbsp;
+
+        🚖 RideFlow Analytics •
         Built with Streamlit + SQLite + Groq AI
-        <br>
+
+        <br><br>
+
         Edit data → Explore analytics → Ask the data
+
     </div>
     """,
+
     unsafe_allow_html=True
 )
